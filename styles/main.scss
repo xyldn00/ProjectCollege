@@ -2,3 +2,9 @@
 @use 'global';
 @use 'variables';
 @use 'utils';
+
+@use 'blocks/header';
+@use 'blocks/burger';
+@use 'blocks/icon';
+
+@use 'blocks/footer';

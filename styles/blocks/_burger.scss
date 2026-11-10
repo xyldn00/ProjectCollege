@@ -1,0 +1,57 @@
+@use '../helpers' as *;
+
+.burger-button {
+    display: none !important; // По умолчанию на ноутбуках/десктопах скрыт
+
+    @media (max-width: 1023.98px) {
+        @include square(rem(44));
+        display: inline-flex !important;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: rem(11) rem(8);
+        color: var(--color-text-main);
+        background-color: transparent;
+        border: none;
+        border-radius: var(--border-radius-sm);
+        cursor: pointer;
+
+        @include hover {
+            color: var(--color-primary);
+            background-color: var(--color-primary-light);
+        }
+    }
+
+    &.is-active {
+        .burger-button__line {
+            &:first-child {
+                transform: translateY(#{rem(10)}) rotate(45deg);
+            }
+
+            &:nth-child(2) {
+                opacity: 0;
+                transform: translateX(#{rem(-10)});
+            }
+
+            &:last-child {
+                width: 100%;
+                transform: translateY(#{rem(-9)}) rotate(-45deg);
+            }
+        }
+    }
+
+    &__line {
+        background-color: currentColor;
+        width: 100%;
+        height: rem(2);
+        border-radius: var(--border-radius-full);
+        
+        transition: transform var(--transition-duration) ease, 
+                    width var(--transition-duration) ease, 
+                    opacity var(--transition-duration) ease;
+
+        &:last-child {
+            width: 55%;
+            align-self: flex-end;
+        }
+    }
+}

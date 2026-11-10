@@ -1,0 +1,331 @@
+@use '../helpers' as *;
+
+// ============================================
+// HEADER COMPONENT
+// ============================================
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--color-text-light);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-normal);
+
+    // Состояние при открытом мобильном меню
+    &.is-open {
+        .header__overlay {
+            @include show;
+            transform: translateY(0);
+        }
+
+        // Трансформация бургера в крестик
+        .header__burger {
+            .burger-button__line {
+                &:first-child {
+                    transform: translateY(#{rem(9)}) rotate(45deg);
+                }
+
+                &:nth-child(2) {
+                    opacity: 0;
+                    transform: translateX(#{rem(-10)});
+                }
+
+                &:last-child {
+                    width: 100%;
+                    transform: translateY(#{rem(-9)}) rotate(-45deg);
+                }
+            }
+        }
+    }
+}
+
+// --- 1. Верхний информационный бар (Leech) ---
+.header__leech {
+    background-color: var(--color-dark);
+    color: var(--color-text-light);
+    padding-block: var(--spacing-sm);
+    @include fluid-text(14, 12);
+
+    .header__leech-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--spacing-md);
+        flex-wrap: wrap;
+
+        @include tablet {
+            flex-direction: column;
+            gap: var(--spacing-xs);
+            text-align: center;
+        }
+    }
+}
+
+.header__leech-left,
+.header__leech-right {
+    @include flex-center(true);
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+
+    svg {
+        width: #{rem(18)};
+        height: #{rem(18)};
+        flex-shrink: 0;
+        fill: currentColor;
+    }
+}
+
+.header__leech-text--blue {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+.header__leech-text--grey {
+    color: var(--color-text-light);
+    opacity: 0.75;
+}
+
+// --- 2. Основное тело хедера ---
+.header__body {
+    padding-block: var(--spacing-md);
+
+    @include tablet {
+        padding-block: var(--spacing-sm);
+    }
+}
+
+.header__body-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+    position: relative;
+}
+
+// --- Логотип ---
+.header__logo {
+    @include flex-center(true);
+    gap: var(--spacing-sm);
+    text-decoration: none;
+    z-index: 102;
+    flex-shrink: 0;
+
+    .logo__image,
+    img,
+    svg {
+        height: #{rem(44)};
+        width: auto;
+        display: block;
+
+        @include mobile {
+            height: #{rem(36)};
+        }
+    }
+}
+
+// --- Бургер-кнопка (Скрыта на ноутбуке и десктопе, видна только на tablet) ---
+.header__burger {
+    display: none;
+
+    @include tablet {
+        @include square(#{rem(44)});
+        @include flex-center(false);
+        flex-direction: column;
+        justify-content: space-between;
+        padding: #{rem(12)} #{rem(8)};
+        color: var(--color-text-main);
+        background-color: transparent;
+        border: none;
+        border-radius: var(--border-radius-sm);
+        cursor: pointer;
+        position: relative;
+        z-index: 102;
+        flex-shrink: 0;
+
+        @include hover {
+            color: var(--color-primary);
+            background-color: var(--color-primary-light);
+        }
+    }
+
+    .burger-button__line {
+        width: 100%;
+        height: #{rem(2)};
+        background-color: currentColor;
+        border-radius: var(--border-radius-full);
+        transition: transform var(--transition-duration), opacity var(--transition-duration), width var(--transition-duration);
+
+        &:last-child {
+            width: 60%;
+            align-self: flex-end;
+        }
+    }
+}
+
+// --- Навигационная панель / Оверлей ---
+.header__overlay {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-xl);
+    flex-grow: 1;
+
+    @include tablet {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100dvh;
+        background-color: var(--color-body-bg);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: var(--spacing-xl);
+        padding: var(--spacing-xl) var(--container-padding-x);
+        box-sizing: border-box;
+        overflow-y: auto;
+        z-index: 101;
+
+        @include hide;
+        transform: translateY(#{rem(-20)});
+        transition: opacity var(--transition-normal), visibility var(--transition-normal), transform var(--transition-normal);
+    }
+}
+
+// --- Меню (строго по центру на десктопе) ---
+.header__menu {
+    margin-inline: auto;
+
+    @include tablet {
+        margin-inline: 0;
+        width: 100%;
+        max-width: #{rem(400)};
+    }
+}
+
+.header__menu-list {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    @include tablet {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        width: 100%;
+    }
+}
+
+.header__menu-item {
+    @include tablet {
+        width: 100%;
+    }
+}
+
+.header__menu-link {
+    @include flex-center(true);
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    font-weight: 500;
+    color: var(--color-text-main);
+    transition: var(--transition-normal);
+    @include fluid-text(15, 13);
+    text-decoration: none;
+    white-space: nowrap;
+
+    .header__menu-icon,
+    svg {
+        width: #{rem(18)};
+        height: #{rem(18)};
+        flex-shrink: 0;
+        fill: currentColor;
+    }
+
+    @include hover {
+        background-color: var(--color-primary-light);
+        color: var(--color-primary);
+    }
+
+    &.is-active {
+        color: var(--color-primary);
+        background-color: var(--color-primary-light);
+        font-weight: 600;
+    }
+
+    @include tablet {
+        padding: var(--spacing-md);
+        width: 100%;
+        justify-content: flex-start;
+        @include fluid-text(18, 16);
+        border: #{rem(1)} solid var(--border-color-light);
+        background-color: var(--color-text-light);
+    }
+}
+
+// --- Блок авторизации / Кнопки ---
+.header__sign {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    flex-shrink: 0;
+
+    @include tablet {
+        flex-direction: column;
+        width: 100%;
+        max-width: #{rem(400)};
+        gap: var(--spacing-sm);
+    }
+}
+
+.header__sign-signin {
+    background-color: transparent;
+    color: var(--color-text-main);
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    font-weight: 600;
+    @include fluid-text(15, 13);
+    cursor: pointer;
+    transition: var(--transition-normal);
+    text-decoration: none;
+
+    @include hover {
+        color: var(--color-primary);
+        background-color: var(--color-primary-light);
+    }
+
+    @include tablet {
+        width: 100%;
+        text-align: center;
+        padding: var(--spacing-md);
+        border: #{rem(1)} solid var(--border-color-light);
+    }
+}
+
+.header__sign-signup {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    font-weight: 600;
+    @include fluid-text(15, 13);
+    cursor: pointer;
+    transition: var(--transition-normal);
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+
+    @include hover {
+        background-color: var(--color-primary-hover);
+        box-shadow: var(--shadow-md);
+    }
+
+    @include tablet {
+        width: 100%;
+        text-align: center;
+        padding: var(--spacing-md);
+    }
+}

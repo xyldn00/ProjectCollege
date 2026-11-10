@@ -1,0 +1,136 @@
+@use '../helpers' as *;
+
+// ============================================
+// FOOTER COMPONENT
+// ============================================
+
+.footer {
+    background-color: var(--color-dark);
+    color: var(--color-text-light);
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-md);
+    margin-top: auto; // Прижимает футер к низу страницы
+
+    @include mobile {
+        padding-top: var(--spacing-lg);
+    }
+}
+
+// --- Основной блок футера ---
+.footer__body {
+    margin-bottom: var(--spacing-xl);
+
+    @include mobile {
+        margin-bottom: var(--spacing-lg);
+    }
+}
+
+// --- Сетка колонок ---
+.footer__menu {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: var(--spacing-xl);
+
+    @include tablet {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        text-align: center;
+    }
+}
+
+// --- Колонка футера ---
+.footer__menu-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+
+    @include mobile {
+        align-items: center;
+    }
+}
+
+// --- Заголовок колонки ---
+.footer__menu-name {
+    color: var(--color-text-light);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.4;
+
+    // Стилизация логотипа в первой колонке
+    .logo__image,
+    img,
+    svg {
+        height: #{rem(40)};
+        width: auto;
+        display: block;
+
+        @include mobile {
+            height: #{rem(34)};
+        }
+    }
+}
+
+// --- Список элементов ---
+.footer__menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+// --- Элементы списка и ссылки ---
+.footer__menu-item {
+    color: var(--color-text-light);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+
+    a {
+        color: var(--color-text-light);
+        opacity: 0.75;
+        transition: var(--transition-normal);
+        display: inline-block;
+
+        @include hover {
+            opacity: 1;
+            color: var(--color-accent);
+            transform: translateX(#{rem(4)});
+        }
+
+        @include mobile {
+            @include hover {
+                transform: translateY(#{rem(-2)});
+            }
+        }
+    }
+
+    p {
+        margin: 0;
+        opacity: 0.75;
+    }
+}
+
+// --- Нижняя полоса (Копирайт и правовая информация) ---
+.footer__extra {
+    border-top: #{rem(1)} solid rgba(255, 255, 255, 0.12);
+    padding-top: var(--spacing-md);
+}
+
+.footer__extra-menu {
+    text-align: center;
+}
+
+.footer__extra-menu-text {
+    color: var(--color-text-light);
+    opacity: 0.6;
+    font-size: var(--font-size-sm);
+    margin: 0;
+    line-height: 1.5;
+}
