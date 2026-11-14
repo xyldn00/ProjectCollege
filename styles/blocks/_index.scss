@@ -1,0 +1,274 @@
+@use '../helpers' as *;
+
+
+.section {
+    padding-block: rem(64);
+
+    @include tablet {
+        padding-block: rem(40);
+    }
+
+    &--gray {
+        background-color: var(--color-body-bg, #f4f5f7);
+    }
+
+    &__header {
+        margin-bottom: rem(32);
+
+        &--row {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: rem(16);
+            flex-wrap: wrap;
+        }
+    }
+
+    &__title {
+        @include fluid-text(30, 22);
+        font-weight: 700;
+        color: var(--color-text-secondary);
+        margin: 0 0 rem(6);
+    }
+
+    &__desc {
+        @include fluid-text(15, 13);
+        color: #5e6c84;
+        margin: 0;
+    }
+}
+
+.hero {
+    background: linear-gradient(135deg, var(--color-dark, #091e42) 0%, #153266 100%);
+    color: #ffffff;
+    padding-block: rem(80);
+
+    @include tablet {
+        padding-block: rem(48);
+    }
+
+    &__inner {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr;
+        gap: rem(40);
+        align-items: center;
+
+        @include tablet {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__badge {
+        display: inline-block;
+        padding: rem(6) rem(12);
+        background-color: rgba(0, 153, 255, 0.2);
+        color: var(--color-accent, #0099ff);
+        border-radius: var(--border-radius-full, 999px);
+        font-weight: 600;
+        @include fluid-text(13, 12);
+        margin-bottom: rem(16);
+    }
+
+    &__title {
+        @include fluid-text(40, 26);
+        font-weight: 800;
+        line-height: 1.2;
+        margin: 0 0 rem(16);
+        color: var(--color-primary-light);
+    }
+
+    &__subtitle {
+        @include fluid-text(16, 14);
+        color: rgba(255, 255, 255, 0.85);
+        line-height: 1.6;
+        margin: 0 0 rem(24);
+    }
+
+    &__actions {
+        display: flex;
+        gap: rem(12);
+        flex-wrap: wrap;
+    }
+
+    &__btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: rem(12) rem(24);
+        border-radius: var(--border-radius-md, rem(8));
+        font-weight: 600;
+        @include fluid-text(15, 14);
+        text-decoration: none;
+        transition: var(--transition-normal);
+
+        &--primary {
+            background-color: var(--color-primary, #a9b5c6);
+            color: #ffffff;
+
+            @include hover {
+                background-color: var(--color-primary-hover, #0040a8);
+            }
+        }
+
+        &--outline {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+
+            @include hover {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+        }
+    }
+
+    &__image-card {
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: var(--border-radius-md, rem(12));
+        padding: rem(32);
+        text-align: center;
+        backdrop-filter: blur(10px);
+
+        .hero__card-icon {
+            font-size: rem(48);
+            margin-bottom: rem(16);
+        }
+
+        h3 {
+            @include fluid-text(20, 18);
+            font-weight: 700;
+            margin: 0 0 rem(8);
+            color: var(--color-primary-light);
+        }
+
+        p {
+            @include fluid-text(14, 13);
+            color: rgba(255, 255, 255, 0.75);
+            margin: 0;
+            line-height: 1.5;
+        }
+    }
+}
+
+// --- 2. БЛОКИ НАВИГАЦИИ ПО РАЗДЕЛАМ ---
+.sections-nav__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: rem(20);
+
+    @include laptop {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile {
+        grid-template-columns: 1fr;
+    }
+}
+
+.section-card {
+    background-color: #ffffff;
+    border: 1px solid #dfe1e6;
+    border-radius: var(--border-radius-md, rem(10));
+    padding: rem(24);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition-normal);
+
+    @include hover {
+        transform: translateY(rem(-4));
+        box-shadow: var(--shadow-md);
+        border-color: var(--color-primary, #0052cc);
+    }
+
+    &__icon {
+        font-size: rem(28);
+        margin-bottom: rem(14);
+    }
+
+    &__title {
+        @include fluid-text(18, 16);
+        font-weight: 700;
+        color: var(--color-text-main, #172b4d);
+        margin: 0 0 rem(8);
+    }
+
+    &__text {
+        @include fluid-text(14, 13);
+        color: #5e6c84;
+        line-height: 1.5;
+        margin: 0 0 rem(16);
+        flex-grow: 1;
+    }
+
+    &__link {
+        font-weight: 600;
+        @include fluid-text(14, 13);
+        color: var(--color-primary, #0052cc);
+    }
+}
+
+// --- 3. ПОСЛЕДНИЕ НОВОСТИ ---
+.all-news-link {
+    font-weight: 600;
+    @include fluid-text(14, 13);
+    color: var(--color-primary, #0052cc);
+    text-decoration: none;
+
+    @include hover {
+        text-decoration: underline;
+    }
+}
+
+.latest-news__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: rem(24);
+
+    @include tablet {
+        grid-template-columns: 1fr;
+    }
+}
+
+.news-preview-card {
+    background-color: #ffffff;
+    border: 1px solid #dfe1e6;
+    border-radius: var(--border-radius-md, rem(10));
+    padding: rem(24);
+    display: flex;
+    flex-direction: column;
+
+    &__date {
+        font-size: rem(12);
+        color: #6b778c;
+        margin-bottom: rem(8);
+        font-weight: 500;
+    }
+
+    &__title {
+        @include fluid-text(17, 15);
+        font-weight: 700;
+        color: var(--color-text-main, #172b4d);
+        margin: 0 0 rem(10);
+        line-height: 1.4;
+    }
+
+    &__text {
+        @include fluid-text(14, 13);
+        color: #5e6c84;
+        line-height: 1.5;
+        margin: 0 0 rem(20);
+        flex-grow: 1;
+    }
+
+    &__btn {
+        font-size: rem(14);
+        font-weight: 600;
+        color: var(--color-primary, #0052cc);
+        text-decoration: none;
+
+        @include hover {
+            text-decoration: underline;
+        }
+    }
+}

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/main.css">
+    <script defer src="js/main.js" type="module"></script>
+    <title>MAI - programs</title>
+</head>
+<body>
+    <header class="header" data-js-header>
+        <div class="header__leech">
+            <div class="header__leech-left">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.7 5.2c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z" />
+            </svg>
+                <p class="header__leech-text--blue">Информационная система колледжа</p>
+            </div>
+            <div class="header__leech-right">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                <p class="header__leech-text--grey">Приемная комиссия: +7 (499) 158-40-01</p>
+        </div>
+        </div>
+        <div class="header__body">
+            <div class="header__body-inner container">
+
+    <a href="/" class="header__logo logo">
+        <img src="./icon/logo.svg" alt="" class="logo__image">
+    </a>
+    <div class="header__overlay" data-js-header-overlay>
+        <nav class="header__menu">
+            <ul class="header__menu-list">
+                <li class="header__menu-item">
+                    <a href="/" class="header__menu-link">
+                        <img src="./icon/Home.svg" alt="" class="header__menu-icon icon">
+                        Главная
+                    </a>
+                </li>
+                <li class="header__menu-item">
+                    <a href="services.html" class="header__menu-link">
+                        <img src="./icon/programms.svg" alt="" class="header__menu-icon icon">
+                        Услуги
+                    </a>
+                </li>
+                <li class="header__menu-item">
+                    <a href="programs.html" class="header__menu-link is-active">
+                        <img src="./icon/write.svg" alt="" class="header__menu-icon icon">
+                        Специальности
+                    </a>
+                </li>
+                <li class="header__menu-item">
+                    <a href="about.html" class="header__menu-link">
+                        <img src="./icon/info.svg" alt="" class="header__menu-icon icon">
+                        О колледже
+                    </a>
+                </li>
+                <li class="header__menu-item">
+                    <a href="cabinet.html" class="header__menu-link">
+                        <img src="./icon/people.svg" alt="" class="header__menu-icon icon">
+                        Личный кабинет
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="header__sign">
+            <button class="header__sign-signin">Вход</button>
+            <button class="header__sign-signup">Регистрация</button>
+        </div>
+    </div>
+    <button class="header__burger burger-button" 
+                data-js-header-burger-button 
+                aria-label="Открыть меню" 
+                type="button">
+            <span class="burger-button__line"></span>
+            <span class="burger-button__line"></span>
+            <span class="burger-button__line"></span>
+        </button>
+</div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="page-header">
+            <div class="container">
+                <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                    <a href="index.html" class="breadcrumbs__link">Главная</a>
+                    <span class="breadcrumbs__sep">/</span>
+                    <span class="breadcrumbs__current">Специальности</span>
+                </nav>
+                <div class="page-header__content">
+                    <div>
+                        <h1 class="page-header__title">Специальности и направления подготовки</h1>
+                        <p class="page-header__desc">
+                            Актуальные образовательные программы среднего профессионального образования (СПО) на 2026–2027 учебный год.
+                        </p>
+                    </div>
+                    <div class="page-header__summary">
+                        <div class="summary-pill">
+                            <strong>6</strong>
+                            <span>направлений</span>
+                        </div>
+                        <div class="summary-pill">
+                            <strong>250</strong>
+                            <span>бюджетных мест</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="catalog section">
+            <div class="container">
+                <div class="catalog-filters" data-js-program-filters>
+                    <span class="catalog-filters__label">База поступления:</span>
+                    <div class="catalog-filters__buttons">
+                        <button type="button" class="filter-btn is-active" data-filter="all">Все программы</button>
+                        <button type="button" class="filter-btn" data-filter="9">После 9 класса</button>
+                        <button type="button" class="filter-btn" data-filter="11">После 11 класса</button>
+                    </div>
+                </div>
+
+                <div class="catalog__grid" data-js-program-list>
+                
+                    <article class="spec-card" data-base="9">
+                        <div class="spec-card__header">
+                            <span class="spec-card__code">09.02.07</span>
+                            <span class="spec-card__tag spec-card__tag--budget">50 бюджетных мест</span>
+                        </div>
+                        <h2 class="spec-card__title">Информационные системы и программирование</h2>
+                        <p class="spec-card__desc">
+                            Квалификация: разработчик веб и мультимедийных приложений, администратор баз данных. Изучение Python, C#, JavaScript, SQL и архитектуры ИС.
+                        </p>
+                        <ul class="spec-card__specs">
+                            <li><span>База обучения:</span> <strong>9 классов</strong></li>
+                            <li><span>Срок обучения:</span> <strong>3 года 10 мес.</strong></li>
+                            <li><span>Форма обучения:</span> <strong>Очная</strong></li>
+                            <li><span>Средний балл аттестата:</span> <strong>4.65</strong></li>
+                        </ul>
+                        <div class="spec-card__footer">
+                            <a href="services.html" class="btn btn--primary btn--full">Подать документы</a>
+                        </div>
+                    </article>
+
+                    <article class="spec-card" data-base="9">
+                        <div class="spec-card__header">
+                            <span class="spec-card__code">10.02.05</span>
+                            <span class="spec-card__tag spec-card__tag--budget">45 бюджетных мест</span>
+                        </div>
+                        <h2 class="spec-card__title">Обеспечение информационной безопасности автоматизированных систем</h2>
+                        <p class="spec-card__desc">
+                            Квалификация: техник по защите информации. Криптографические средства защиты, аудит уязвимостей, защита корпоративных сетей.
+                        </p>
+                        <ul class="spec-card__specs">
+                            <li><span>База обучения:</span> <strong>9 классов</strong></li>
+                            <li><span>Срок обучения:</span> <strong>3 года 10 мес.</strong></li>
+                            <li><span>Форма обучения:</span> <strong>Очная</strong></li>
+                            <li><span>Средний балл аттестата:</span> <strong>4.58</strong></li>
+                        </ul>
+                        <div class="spec-card__footer">
+                            <a href="services.html" class="btn btn--primary btn--full">Подать документы</a>
+                        </div>
+                    </article>
+
+                    <!-- Карточка 3 -->
+                    <article class="spec-card" data-base="11">
+                        <div class="spec-card__header">
+                            <span class="spec-card__code">09.02.06</span>
+                            <span class="spec-card__tag spec-card__tag--budget">35 бюджетных мест</span>
+                        </div>
+                        <h2 class="spec-card__title">Сетевое и системное администрирование</h2>
+                        <p class="spec-card__desc">
+                            Квалификация: сетевой и системный администратор. Развертывание серверов Linux/Windows, виртуализация, маршрутизация и облачная инфраструктура.
+                        </p>
+                        <ul class="spec-card__specs">
+                            <li><span>База обучения:</span> <strong>11 классов</strong></li>
+                            <li><span>Срок обучения:</span> <strong>2 года 10 мес.</strong></li>
+                            <li><span>Форма обучения:</span> <strong>Очная</strong></li>
+                            <li><span>Средний балл аттестата:</span> <strong>4.35</strong></li>
+                        </ul>
+                        <div class="spec-card__footer">
+                            <a href="services.html" class="btn btn--primary btn--full">Подать документы</a>
+                        </div>
+                    </article>
+
+                    <!-- Карточка 4 -->
+                    <article class="spec-card" data-base="9">
+                        <div class="spec-card__header">
+                            <span class="spec-card__code">15.02.16</span>
+                            <span class="spec-card__tag spec-card__tag--budget">50 бюджетных мест</span>
+                        </div>
+                        <h2 class="spec-card__title">Технология машиностроения</h2>
+                        <p class="spec-card__desc">
+                            Квалификация: техник-технолог. Проектирование в CAD/CAM-системах, программирование станков с ЧПУ и контроль качества производства.
+                        </p>
+                        <ul class="spec-card__specs">
+                            <li><span>База обучения:</span> <strong>9 классов</strong></li>
+                            <li><span>Срок обучения:</span> <strong>3 года 10 мес.</strong></li>
+                            <li><span>Форма обучения:</span> <strong>Очная</strong></li>
+                            <li><span>Средний балл аттестата:</span> <strong>4.20</strong></li>
+                        </ul>
+                        <div class="spec-card__footer">
+                            <a href="services.html" class="btn btn--primary btn--full">Подать документы</a>
+                        </div>
+                    </article>
+
+                    <!-- Карточка 5 -->
+                    <article class="spec-card" data-base="11">
+                        <div class="spec-card__header">
+                            <span class="spec-card__code">38.02.01</span>
+                            <span class="spec-card__tag spec-card__tag--paid">Договорная основа</span>
+                        </div>
+                        <h2 class="spec-card__title">Экономика и бухгалтерский учет (по отраслям)</h2>
+                        <p class="spec-card__desc">
+                            Квалификация: бухгалтер. Финансовый анализ, налоговый учет, работа в 1С:Предприятие и составление бухгалтерской отчетности.
+                        </p>
+                        <ul class="spec-card__specs">
+                            <li><span>База обучения:</span> <strong>11 классов</strong></li>
+                            <li><span>Срок обучения:</span> <strong>1 год 10 мес.</strong></li>
+                            <li><span>Форма обучения:</span> <strong>Очная / Заочная</strong></li>
+                            <li><span>Средний балл аттестата:</span> <strong>4.10</strong></li>
+                        </ul>
+                        <div class="spec-card__footer">
+                            <a href="services.html" class="btn btn--primary btn--full">Подать документы</a>
+                        </div>
+                    </article>
+
+                    <!-- Карточка 6 -->
+                    <article class="spec-card" data-base="9">
+                        <div class="spec-card__header">
+                            <span class="spec-card__code">09.02.01</span>
+                            <span class="spec-card__tag spec-card__tag--budget">40 бюджетных мест</span>
+                        </div>
+                        <h2 class="spec-card__title">Компьютерные системы и комплексы</h2>
+                        <p class="spec-card__desc">
+                            Квалификация: специалист по компьютерным системам. Микропроцессорная техника, схемотехника, диагностика и ремонт аппаратного обеспечения.
+                        </p>
+                        <ul class="spec-card__specs">
+                            <li><span>База обучения:</span> <strong>9 классов</strong></li>
+                            <li><span>Срок обучения:</span> <strong>3 года 10 мес.</strong></li>
+                            <li><span>Форма обучения:</span> <strong>Очная</strong></li>
+                            <li><span>Средний балл аттестата:</span> <strong>4.40</strong></li>
+                        </ul>
+                        <div class="spec-card__footer">
+                            <a href="services.html" class="btn btn--primary btn--full">Подать документы</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Памятка для абитуриентов -->
+        <section class="admission-info section section--gray">
+            <div class="container">
+                <div class="admission-box">
+                    <div class="admission-box__content">
+                        <h2 class="section__title">Правила поступления для абитуриентов</h2>
+                        <p class="section__desc">Прием на обучение проводится на общедоступной основе по среднему баллу аттестата без вступительных экзаменов.</p>
+                        <div class="admission-steps">
+                            <div class="admission-step">
+                                <span class="admission-step__num">01</span>
+                                <div>
+                                    <strong>Подготовьте документы</strong>
+                                    <p>Паспорт, оригинал или копия аттестата, 4 фотографии 3×4, медицинская справка 086/у и СНИЛС.</p>
+                                </div>
+                            </div>
+                            <div class="admission-step">
+                                <span class="admission-step__num">02</span>
+                                <div>
+                                    <strong>Подайте заявление с 20 июня по 15 августа</strong>
+                                    <p>Оформить заявление можно лично в приемной комиссии или дистанционно после регистрации в ИС.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admission-box__cta">
+                        <h3>Нужна консультация приемной комиссии?</h3>
+                        <p>Задайте вопрос или подайте заявку на консультацию через сервис электронных обращений.</p>
+                        <a href="services.html" class="btn btn--primary btn--full">Перейти в электронные услуги</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="latest-news section section--gray">
+        <div class="container">
+            <div class="section__header section__header--row">
+                <div>
+                    <h2 class="section__title">Последние новости</h2>
+                    <p class="section__desc">Будьте в курсе актуальных событий и мероприятий колледжа</p>
+                </div>
+                <a href="news.html" class="all-news-link">Все новости →</a>
+            </div>
+
+            <div class="latest-news__grid">
+                <article class="news-preview-card">
+                    <span class="news-preview-card__date">14 ноября 2026</span>
+                    <h3 class="news-preview-card__title">День открытых дверей для будущих абитуриентов</h3>
+                    <p class="news-preview-card__text">Приглашаем школьников и их родителей посетить наш колледж, познакомиться с преподавателями и оценить материально-техническую базу.</p>
+                    <a href="news-item.html" class="news-preview-card__btn">Читать далее</a>
+                </article>
+
+                <article class="news-preview-card">
+                    <span class="news-preview-card__date">10 ноября 2026</span>
+                    <h3 class="news-preview-card__title">Запуск обновленного сервиса заказа справок в личном кабинете</h3>
+                    <p class="news-preview-card__text">Студенты теперь могут оформлять справки об обучении в пару кликов с возможностью отслеживания статуса обработки.</p>
+                    <a href="news-item.html" class="news-preview-card__btn">Читать далее</a>
+                </article>
+
+                <article class="news-preview-card">
+                    <span class="news-preview-card__date">05 ноября 2026</span>
+                    <h3 class="news-preview-card__title">Студенческая научно-практическая конференция</h3>
+                    <p class="news-preview-card__text">Идет прием заявок на участие ежегодной конференции по информационным технологиям и информационной безопасности.</p>
+                    <a href="news-item.html" class="news-preview-card__btn">Читать далее</a>
+                </article>
+            </div>
+        </div>
+    </section>
+</main>
+
+    <footer class="footer">
+        <div class="footer__inner container">
+            <div class="footer__body">
+                <nav class="footer__menu">
+                    <div class="footer__menu-column">
+                        <h3 class="footer__menu-name"><img src="./icon/logo.svg" alt=""></h3>
+                        <ul class="footer__menu-list">
+                            <li class="footer__menu-item"><p>Информационная система управления заявками и студенческими сервисами.  </p></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__menu-column">
+                        <h3 class="footer__menu-name">Контакты</h3>
+                        <ul class="footer__menu-list">
+                            <li class="footer__menu-item"><p>Москва, Волоколамское шоссе, д. 4</p></li>
+                            <li class="footer__menu-item"><p>Тел: +7 (499) 158-40-01</p></li>
+                        </ul>
+                    </div>
+                    <div class="footer__menu-column">
+                        <h3 class="footer__menu-name">Разделы ИС</h3>
+                        <ul class="footer__menu-list">
+                            <li class="footer__menu-item"><a href="">Направления</a></li>
+                            <li class="footer__menu-item"><a href="">Заказ справок</a></li>
+                            <li class="footer__menu-item"><a href="">Личный кабинет</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__menu-column">
+                        <h3 class="footer__menu-name">Безопасность</h3>
+                        <ul class="footer__menu-list">
+                            <li class="footer__menu-item"><p>Данные защищены протоколами шифрования информационной системы.</p></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="footer__extra">
+                <div class="footer__extra-menu">
+                    <p class="footer__extra-menu-text">© 2026 Московский Авиационный Институт. Информационная система колледжа.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/main.css">
+    <script defer src="js/main.js" type="module"></script>
+    <title>MAI</title>
+</head>
+<body>
+    <header class="header" data-js-header>
+        <div class="header__leech">
+            <div class="header__leech-left">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.7 5.2c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z" />
+            </svg>
+                <p class="header__leech-text--blue">Информационная система колледжа</p>
+            </div>
+            <div class="header__leech-right">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                <p class="header__leech-text--grey">Приемная комиссия: +7 (499) 158-40-01</p>
+        </div>
+        </div>
+        <div class="header__body">
+            <div class="header__body-inner container">
+
+    <a href="/" class="header__logo logo">
+        <img src="./icon/logo.svg" alt="" class="logo__image">
+    </a>
+    <div class="header__overlay" data-js-header-overlay>
+        <nav class="header__menu">
+            <ul class="header__menu-list">
+                <li class="header__menu-item">
+                    <a href="/" class="header__menu-link">
+                        <img src="./icon/Home.svg" alt="" class="header__menu-icon icon">
+                        Главная
+                    </a>
+                </li>
+                <li class="header__menu-item">
+                    <a href="services.html" class="header__menu-link">
+                        <img src="./icon/programms.svg" alt="" class="header__menu-icon icon">
+                        Услуги
+                    </a>
+                </li>
+                <li class="header__menu-item">
+                    <a href="programs.html" class="header__menu-link">
+                        <img src="./icon/write.svg" alt="" class="header__menu-icon icon">
+                        Специальности
+                    </a>
+                </li>
+                <li class="header__menu-item">
+                    <a href="about.html" class="header__menu-link">
+                        <img src="./icon/info.svg" alt="" class="header__menu-icon icon">
+                        О колледже
+                    </a>
+                </li>
+                <li class="header__menu-item">
+                    <a href="cabinet.html" class="header__menu-link is-active">
+                        <img src="./icon/people.svg" alt="" class="header__menu-icon icon">
+                        Личный кабинет
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="header__sign">
+            <button class="header__sign-signin">Вход</button>
+            <button class="header__sign-signup">Регистрация</button>
+        </div>
+    </div>
+    <button class="header__burger burger-button" 
+                data-js-header-burger-button 
+                aria-label="Открыть меню" 
+                type="button">
+            <span class="burger-button__line"></span>
+            <span class="burger-button__line"></span>
+            <span class="burger-button__line"></span>
+        </button>
+</div>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Шапка страницы -->
+        <section class="page-header">
+            <div class="container">
+                <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                    <a href="index.html" class="breadcrumbs__link">Главная</a>
+                    <span class="breadcrumbs__sep">/</span>
+                    <span class="breadcrumbs__current">Личный кабинет</span>
+                </nav>
+                <div class="page-header__content">
+                    <div>
+                        <h1 class="page-header__title">Личный кабинет студента</h1>
+                        <p class="page-header__desc">
+                            Управление профилем, просмотр личных данных и отслеживание статусов электронных заявок.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Контент личного кабинета -->
+        <section class="section">
+            <div class="container">
+                <div class="cabinet-layout">
+                    
+                    <!-- Левая колонка: Профиль пользователя -->
+                    <aside class="cabinet-sidebar">
+                        <div class="profile-card">
+                            <div class="profile-card__avatar">👤</div>
+                            <h2 class="profile-card__name">Иванов Алексей Дмитриевич</h2>
+                            <span class="profile-card__role">Студент очной формы</span>
+
+                            <ul class="profile-info-list">
+                                <li><span>Специальность:</span> <strong>09.02.07 ИСП</strong></li>
+                                <li><span>Группа:</span> <strong>ИСП-21</strong></li>
+                                <li><span>Курс:</span> <strong>2 курс</strong></li>
+                                <li><span>Email:</span> <strong>a.ivanov@student.college.ru</strong></li>
+                            </ul>
+
+                            <a href="auth.html" class="btn btn--outline btn--full" style="margin-top: 20px; color: #bf2600; border-color: #ffd2cc;">Выйти из аккаунта</a>
+                        </div>
+                    </aside>
+
+                    <!-- Правая колонка: Управление заявками -->
+                    <div class="cabinet-content">
+                        <div class="cabinet-box">
+                            <div class="cabinet-box__header">
+                                <div>
+                                    <h2 class="section__title" style="font-size: 22px; margin-bottom: 4px;">Мои заявки на справки</h2>
+                                    <p class="section__desc" style="font-size: 13px; margin: 0;">История и текущие статусы обращений в учебную часть</p>
+                                </div>
+                                <a href="services.html" class="btn btn--primary btn--sm">+ Заказать справку</a>
+                            </div>
+
+                            <div class="tracker-list" style="margin-top: 20px;">
+                                <div class="tracker-item">
+                                    <div class="tracker-item__info">
+                                        <strong>Заявка #1045 — Справка об обучении</strong>
+                                        <span>Подана: сегодня, 12:40 • Получение: Электронный PDF</span>
+                                    </div>
+                                    <span class="status-badge status-badge--process">В обработке</span>
+                                </div>
+
+                                <div class="tracker-item">
+                                    <div class="tracker-item__info">
+                                        <strong>Заявка #1032 — Справка для военного комиссариата</strong>
+                                        <span>Подана: 10.11.2026 • Получение: Бумажный оригинал</span>
+                                    </div>
+                                    <span class="status-badge status-badge--approved">Одобрена</span>
+                                </div>
+
+                                <div class="tracker-item">
+                                    <div class="tracker-item__info">
+                                        <strong>Заявка #1021 — Выписка из зачетной ведомости</strong>
+                                        <span>Подана: 01.10.2026 • Причина отмены: неверный семестр</span>
+                                    </div>
+                                    <span class="status-badge status-badge--rejected">Отклонена</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__inner container">
+            <div class="footer__body">
+                <nav class="footer__menu">
+                    <div class="footer__menu-column">
+                        <h3 class="footer__menu-name"><img src="./icon/logo.svg" alt=""></h3>
+                        <ul class="footer__menu-list">
+                            <li class="footer__menu-item"><p>Информационная система управления заявками и студенческими сервисами.  </p></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__menu-column">
+                        <h3 class="footer__menu-name">Контакты</h3>
+                        <ul class="footer__menu-list">
+                            <li class="footer__menu-item"><p>Москва, Волоколамское шоссе, д. 4</p></li>
+                            <li class="footer__menu-item"><p>Тел: +7 (499) 158-40-01</p></li>
+                        </ul>
+                    </div>
+                    <div class="footer__menu-column">
+                        <h3 class="footer__menu-name">Разделы ИС</h3>
+                        <ul class="footer__menu-list">
+                            <li class="footer__menu-item"><a href="">Направления</a></li>
+                            <li class="footer__menu-item"><a href="">Заказ справок</a></li>
+                            <li class="footer__menu-item"><a href="">Личный кабинет</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__menu-column">
+                        <h3 class="footer__menu-name">Безопасность</h3>
+                        <ul class="footer__menu-list">
+                            <li class="footer__menu-item"><p>Данные защищены протоколами шифрования информационной системы.</p></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="footer__extra">
+                <div class="footer__extra-menu">
+                    <p class="footer__extra-menu-text">© 2026 Московский Авиационный Институт. Информационная система колледжа.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

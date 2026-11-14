@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/main.css">
+    <script defer src="js/main.js" type="module"></script>
+    <title>MAI - programs</title>
+</head>
+<body>
+    <header class="header" data-js-header>
+        <div class="header__leech">
+            <div class="header__leech-left">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.7 5.2c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z" />
+            </svg>
+                <p class="header__leech-text--blue">Информационная система колледжа</p>
+            </div>
+            <div class="header__leech-right">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                <p class="header__leech-text--grey">Приемная комиссия: +7 (499) 158-40-01</p>
+        </div>
+        </div>
+        <div class="header__body">
+            <div class="header__body-inner container">
+
+    <a href="/" class="header__logo logo">
+        <img src="./icon/logo.svg" alt="" class="logo__image">
+    </a>
+    <div class="header__overlay" data-js-header-overlay>
+        <nav class="header__menu">
+            <ul class="header__menu-list">
+                <li class="header__menu-item">
+                    <a href="/" class="header__menu-link">
+                        <img src="./icon/Home.svg" alt="" class="header__menu-icon icon">
+                        Главная
+                    </a>
+                </li>
+                <li class="header__menu-item">
+                    <a href="services.html" class="header__menu-link is-active">
+                        <img src="./icon/programms.svg" alt="" class="header__menu-icon icon">
+                        Услуги
+                    </a>
+                </li>
+                <li class="header__menu-item">
+                    <a href="programs.html" class="header__menu-link">
+                        <img src="./icon/write.svg" alt="" class="header__menu-icon icon">
+                        Специальности
+                    </a>
+                </li>
+                <li class="header__menu-item">
+                    <a href="about.html" class="header__menu-link">
+                        <img src="./icon/info.svg" alt="" class="header__menu-icon icon">
+                        О колледже
+                    </a>
+                </li>
+                <li class="header__menu-item">
+                    <a href="cabinet.html" class="header__menu-link">
+                        <img src="./icon/people.svg" alt="" class="header__menu-icon icon">
+                        Личный кабинет
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="header__sign">
+            <button class="header__sign-signin">Вход</button>
+            <button class="header__sign-signup">Регистрация</button>
+        </div>
+    </div>
+    <button class="header__burger burger-button" 
+                data-js-header-burger-button 
+                aria-label="Открыть меню" 
+                type="button">
+            <span class="burger-button__line"></span>
+            <span class="burger-button__line"></span>
+            <span class="burger-button__line"></span>
+        </button>
+</div>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Шапка раздела -->
+        <section class="page-header">
+            <div class="container">
+                <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                    <a href="index.html" class="breadcrumbs__link">Главная</a>
+                    <span class="breadcrumbs__sep">/</span>
+                    <span class="breadcrumbs__current">Электронные услуги</span>
+                </nav>
+                <div class="page-header__content">
+                    <div>
+                        <h1 class="page-header__title">Заказ справок и документов онлайн</h1>
+                        <p class="page-header__desc">
+                            Оформляйте запросы на получение справок об обучении, выписок и документов для военкомата без очередей.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Основной контент: Форма заказа и трекер статусов -->
+        <section class="section">
+            <div class="container">
+                <div class="services__layout">
+                    <!-- Левая колонка: Форма подачи заявки -->
+                    <div class="services__form-box">
+                        <h2 class="section__title" style="text-align: left; font-size: 24px; margin-bottom: 8px;">Новая заявка</h2>
+                        <p class="section__desc" style="margin-bottom: 24px;">Заполните форму для отправки запроса в учебную часть</p>
+                        
+                        <form class="service-form" data-js-service-form>
+                            <div class="form-group">
+                                <label class="form-label" for="doc-type">Тип документа</label>
+                                <select class="form-control" id="doc-type" required>
+                                    <option value="">-- Выберите справку из списка --</option>
+                                    <option value="getplace">Справка для поступления в колледж</option>
+                                    <option value="study">Справка об обучении (по месту требования)</option>
+                                    <option value="military">Справка для военного комиссариата (Приложение №4)</option>
+                                    <option value="grades">Выписка из зачетной ведомости</option>
+                                    <option value="scholarship">Справка о размере академической стипендии</option>
+                                </select>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="copies">Количество копий</label>
+                                    <input class="form-control" type="number" id="copies" value="1" min="1" max="5" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="delivery">Способ получения</label>
+                                    <select class="form-control" id="delivery">
+                                        <option value="digital">Электронный PDF с ЭЦП</option>
+                                        <option value="paper">Бумажный оригинал (каб. 204)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="comment">Комментарий или примечание</label>
+                                <textarea class="form-control" id="comment" rows="3" placeholder="Укажите дополнительные пожелания, если требуются"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn--primary btn--full">Отправить заявку в обработку</button>
+                        </form>
+                    </div>
+
+                    <!-- Правая колонка: Превью статусов (как в личном кабинете) -->
+                    <div class="services__tracker-box">
+                        <div class="tracker-header">
+                            <h3 class="tracker-header__title">Статусы ваших заявок</h3>
+                            <span class="tracker-header__tag">Обновлено только что</span>
+                        </div>
+                        <p class="tracker-desc">Сотрудник учебной части обрабатывает запросы. Вы можете видеть текущий статус:</p>
+
+                        <div class="tracker-list">
+                            <div class="tracker-item">
+                                <div class="tracker-item__info">
+                                    <strong>Заявка #1045 — Справка об обучении</strong>
+                                    <span>Создана: сегодня, 12:40</span>
+                                </div>
+                                <span class="status-badge status-badge--process">В обработке</span>
+                            </div>
+                            <div class="tracker-item">
+                                <div class="tracker-item__info">
+                                    <strong>Заявка #1032 — Справка в военкомат</strong>
+                                    <span>Создана: 10.11.2026</span>
+                                </div>
+                                <span class="status-badge status-badge--approved">Одобрена</span>
+                            </div>
+                            <div class="tracker-item">
+                                <div class="tracker-item__info">
+                                    <strong>Заявка #1021 — Архивная выписка</strong>
+                                    <span>Причина: некорректный курс</span>
+                                </div>
+                                <span class="status-badge status-badge--rejected">Отклонена</span>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 24px; text-align: center;">
+                            <a href="cabinet.html" class="btn btn--outline" style="width: 100%;">Открыть полный личный кабинет →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__inner container">
+            <div class="footer__body">
+                <nav class="footer__menu">
+                    <div class="footer__menu-column">
+                        <h3 class="footer__menu-name"><img src="./icon/logo.svg" alt=""></h3>
+                        <ul class="footer__menu-list">
+                            <li class="footer__menu-item"><p>Информационная система управления заявками и студенческими сервисами.  </p></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__menu-column">
+                        <h3 class="footer__menu-name">Контакты</h3>
+                        <ul class="footer__menu-list">
+                            <li class="footer__menu-item"><p>Москва, Волоколамское шоссе, д. 4</p></li>
+                            <li class="footer__menu-item"><p>Тел: +7 (499) 158-40-01</p></li>
+                        </ul>
+                    </div>
+                    <div class="footer__menu-column">
+                        <h3 class="footer__menu-name">Разделы ИС</h3>
+                        <ul class="footer__menu-list">
+                            <li class="footer__menu-item"><a href="">Направления</a></li>
+                            <li class="footer__menu-item"><a href="">Заказ справок</a></li>
+                            <li class="footer__menu-item"><a href="">Личный кабинет</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__menu-column">
+                        <h3 class="footer__menu-name">Безопасность</h3>
+                        <ul class="footer__menu-list">
+                            <li class="footer__menu-item"><p>Данные защищены протоколами шифрования информационной системы.</p></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="footer__extra">
+                <div class="footer__extra-menu">
+                    <p class="footer__extra-menu-text">© 2026 Московский Авиационный Институт. Информационная система колледжа.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

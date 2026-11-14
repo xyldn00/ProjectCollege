@@ -1,0 +1,95 @@
+@use '../helpers' as *;
+
+.cabinet-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: rem(32);
+    align-items: flex-start;
+
+    @include tablet {
+        grid-template-columns: 1fr;
+    }
+}
+
+.profile-card {
+    background-color: #ffffff;
+    border: 1px solid #dfe1e6;
+    border-radius: var(--border-radius-md, rem(12));
+    padding: rem(28);
+    text-align: center;
+
+    &__avatar {
+        width: rem(72);
+        height: rem(72);
+        border-radius: 50%;
+        background-color: var(--color-primary-light, #e6f0ff);
+        color: var(--color-primary, #0052cc);
+        font-size: rem(36);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto rem(16);
+    }
+
+    &__name {
+        @include fluid-text(18, 16);
+        font-weight: 700;
+        color: var(--color-text-main, #172b4d);
+        margin: 0 0 rem(4);
+    }
+
+    &__role {
+        display: inline-block;
+        font-size: rem(13);
+        color: #5e6c84;
+        margin-bottom: rem(20);
+        padding: rem(3) rem(10);
+        background-color: #f4f5f7;
+        border-radius: var(--border-radius-full, 999px);
+    }
+}
+
+.profile-info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid #ebecf0;
+    padding-top: rem(16);
+    display: flex;
+    flex-direction: column;
+    gap: rem(10);
+    text-align: left;
+
+    li {
+        display: flex;
+        justify-content: space-between;
+        font-size: rem(13);
+        color: #5e6c84;
+
+        strong {
+            color: var(--color-text-main, #172b4d);
+            font-weight: 600;
+        }
+    }
+}
+
+.cabinet-box {
+    background-color: #ffffff;
+    border: 1px solid #dfe1e6;
+    border-radius: var(--border-radius-md, rem(12));
+    padding: rem(28);
+
+    @include mobile {
+        padding: rem(20);
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: rem(16);
+        flex-wrap: wrap;
+        border-bottom: 1px solid #ebecf0;
+        padding-bottom: rem(16);
+    }
+}

@@ -1,0 +1,322 @@
+@use '../helpers' as *;
+
+// --- Шапка внутренней страницы ---
+.page-header {
+    background-color: var(--color-dark, #091e42);
+    color: #ffffff;
+    padding-block: rem(48);
+
+    @include tablet {
+        padding-block: rem(32);
+    }
+
+    &__content {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: rem(24);
+        flex-wrap: wrap;
+        margin-top: rem(16);
+    }
+
+    &__title {
+        @include fluid-text(36, 24);
+        font-weight: 800;
+        margin: 0 0 rem(10);
+        line-height: 1.2;
+        color: var(--color-primary-light);
+    }
+
+    &__desc {
+        @include fluid-text(16, 14);
+        color: rgba(255, 255, 255, 0.8);
+        margin: 0;
+        max-width: rem(640);
+        line-height: 1.5;
+    }
+
+    &__summary {
+        display: flex;
+        gap: rem(12);
+    }
+}
+
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: rem(8);
+    font-size: rem(13);
+
+    &__link {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+
+        @include hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+    }
+
+    &__sep {
+        color: rgba(255, 255, 255, 0.4);
+    }
+
+    &__current {
+        color: var(--color-accent, #0099ff);
+        font-weight: 600;
+    }
+}
+
+.summary-pill {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: var(--border-radius-md, rem(8));
+    padding: rem(10) rem(18);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    strong {
+        font-size: rem(22);
+        font-weight: 800;
+        color: var(--color-accent, #0099ff);
+        line-height: 1.1;
+    }
+
+    span {
+        font-size: rem(12);
+        color: rgba(255, 255, 255, 0.8);
+    }
+}
+
+// --- Фильтры каталога ---
+.catalog-filters {
+    display: flex;
+    align-items: center;
+    gap: rem(16);
+    flex-wrap: wrap;
+    margin-bottom: rem(32);
+    padding-bottom: rem(20);
+    border-bottom: 1px solid #dfe1e6;
+
+    &__label {
+        font-size: rem(14);
+        font-weight: 600;
+        color: var(--color-text-main, #172b4d);
+    }
+
+    &__buttons {
+        display: flex;
+        gap: rem(8);
+        flex-wrap: wrap;
+    }
+}
+
+.filter-btn {
+    padding: rem(8) rem(16);
+    border-radius: var(--border-radius-full, 999px);
+    border: 1px solid #dfe1e6;
+    background-color: #ffffff;
+    color: var(--color-text-main, #172b4d);
+    font-size: rem(14);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-normal);
+
+    @include hover {
+        border-color: var(--color-primary, #0052cc);
+        color: var(--color-primary, #0052cc);
+    }
+
+    &.is-active {
+        background-color: var(--color-primary, #0052cc);
+        border-color: var(--color-primary, #0052cc);
+        color: #ffffff;
+    }
+}
+
+// --- Сетка карточек специальностей ---
+.catalog__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: rem(24);
+
+    @include laptop {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile {
+        grid-template-columns: 1fr;
+    }
+}
+
+.spec-card {
+    background-color: #ffffff;
+    border: 1px solid #dfe1e6;
+    border-radius: var(--border-radius-md, rem(12));
+    padding: rem(24);
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition-normal);
+
+    @include hover {
+        transform: translateY(rem(-4));
+        box-shadow: var(--shadow-md);
+        border-color: var(--color-primary, #0052cc);
+    }
+
+    &.is-hidden {
+        display: none;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: rem(8);
+        margin-bottom: rem(14);
+    }
+
+    &__code {
+        font-size: rem(13);
+        font-weight: 700;
+        color: var(--color-primary, #0052cc);
+        background-color: var(--color-primary-light, #e6f0ff);
+        padding: rem(4) rem(10);
+        border-radius: var(--border-radius-sm, rem(6));
+    }
+
+    &__tag {
+        font-size: rem(12);
+        font-weight: 600;
+        padding: rem(4) rem(10);
+        border-radius: var(--border-radius-full, 999px);
+
+        &--budget {
+            background-color: #e3fcef;
+            color: #006644;
+        }
+
+        &--paid {
+            background-color: #f4f5f7;
+            color: #5e6c84;
+        }
+    }
+
+    &__title {
+        @include fluid-text(19, 17);
+        font-weight: 700;
+        color: var(--color-text-main, #172b4d);
+        margin: 0 0 rem(10);
+        line-height: 1.35;
+    }
+
+    &__desc {
+        @include fluid-text(14, 13);
+        color: #5e6c84;
+        line-height: 1.5;
+        margin: 0 0 rem(20);
+        flex-grow: 1;
+    }
+
+    &__specs {
+        list-style: none;
+        padding: rem(14) 0;
+        margin: 0 0 rem(20);
+        border-top: 1px solid #ebecf0;
+        border-bottom: 1px solid #ebecf0;
+        display: flex;
+        flex-direction: column;
+        gap: rem(8);
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            font-size: rem(13);
+            color: #5e6c84;
+
+            strong {
+                color: var(--color-text-main, #172b4d);
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+// --- Блок правил поступления ---
+.admission-box {
+    background-color: #ffffff;
+    border: 1px solid #dfe1e6;
+    border-radius: var(--border-radius-md, rem(12));
+    padding: rem(32);
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: rem(32);
+    align-items: center;
+
+    @include tablet {
+        grid-template-columns: 1fr;
+        padding: rem(24);
+    }
+
+    &__cta {
+        background-color: var(--color-primary-light, #e6f0ff);
+        border-radius: var(--border-radius-md, rem(10));
+        padding: rem(24);
+
+        h3 {
+            font-size: rem(18);
+            font-weight: 700;
+            color: var(--color-text-main, #172b4d);
+            margin: 0 0 rem(8);
+        }
+
+        p {
+            font-size: rem(14);
+            color: #42526e;
+            line-height: 1.5;
+            margin: 0 0 rem(18);
+        }
+    }
+}
+
+.admission-steps {
+    display: flex;
+    flex-direction: column;
+    gap: rem(16);
+    margin-top: rem(24);
+}
+
+.admission-step {
+    display: flex;
+    align-items: flex-start;
+    gap: rem(14);
+
+    &__num {
+        flex-shrink: 0;
+        width: rem(36);
+        height: rem(36);
+        border-radius: 50%;
+        background-color: var(--color-primary, #0052cc);
+        color: #ffffff;
+        font-weight: 700;
+        font-size: rem(14);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    strong {
+        display: block;
+        font-size: rem(15);
+        color: var(--color-text-main, #172b4d);
+        margin-bottom: rem(4);
+    }
+
+    p {
+        font-size: rem(14);
+        color: #5e6c84;
+        margin: 0;
+        line-height: 1.45;
+    }
+}
