@@ -64,7 +64,7 @@
                 </li>
             </ul>
         </nav>
-        <div class="header__sign">
+        <div class="header__sign" data-js-header-sign>
             <button class="header__sign-signin">Вход</button>
             <button class="header__sign-signup">Регистрация</button>
         </div>
@@ -179,6 +179,8 @@
     </section>
 </main>
 
+        
+
     <footer class="footer">
         <div class="footer__inner container">
             <div class="footer__body">
@@ -220,5 +222,55 @@
             </div>
         </div>
     </footer>
+
+    <!-- Модальное окно авторизации и регистрации -->
+    <div class="auth-modal" data-js-auth-modal>
+        <div class="auth-modal__overlay" data-js-auth-modal-overlay></div>
+        <div class="auth-modal__content">
+            <button class="auth-modal__close" data-js-auth-modal-close aria-label="Закрыть" type="button">&times;</button>
+            
+            <!-- Форма Входа -->
+            <div class="auth-form" data-js-auth-tab="signin">
+                <h2 class="auth-form__title">Вход в систему</h2>
+                <form class="auth-form__form" onsubmit="event.preventDefault();">
+                    <div class="auth-form__group">
+                        <label class="auth-form__label">Email или логин</label>
+                        <input class="auth-form__input" type="email" required placeholder="student@college.ru">
+                    </div>
+                    <div class="auth-form__group">
+                        <label class="auth-form__label">Пароль</label>
+                        <input class="auth-form__input" type="password" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="auth-form__submit">Войти</button>
+                </form>
+                <p class="auth-form__switch">
+                    Нет аккаунта? <a href="#" data-js-auth-switch="signup">Зарегистрироваться</a>
+                </p>
+            </div>
+
+            <!-- Форма Регистрации -->
+            <div class="auth-form is-hidden" data-js-auth-tab="signup">
+                <h2 class="auth-form__title">Регистрация</h2>
+                <form class="auth-form__form" onsubmit="event.preventDefault();">
+                    <div class="auth-form__group">
+                        <label class="auth-form__label">ФИО</label>
+                        <input class="auth-form__input" type="text" required placeholder="Иванов Иван">
+                    </div>
+                    <div class="auth-form__group">
+                        <label class="auth-form__label">Email</label>
+                        <input class="auth-form__input" type="email" required placeholder="student@college.ru">
+                    </div>
+                    <div class="auth-form__group">
+                        <label class="auth-form__label">Пароль</label>
+                        <input class="auth-form__input" type="password" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="auth-form__submit">Создать аккаунт</button>
+                </form>
+                <p class="auth-form__switch">
+                    Уже есть аккаунт? <a href="#" data-js-auth-switch="signin">Войти</a>
+                </p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

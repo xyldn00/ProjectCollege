@@ -1,8 +1,5 @@
 @use '../helpers' as *;
 
-// ============================================
-// HEADER COMPONENT
-// ============================================
 
 .header {
     position: sticky;
@@ -40,7 +37,7 @@
     }
 }
 
-// --- 1. Верхний информационный бар (Leech) ---
+// Верхний бар
 .header__leech {
     background-color: var(--color-dark);
     color: var(--color-text-light);
@@ -86,7 +83,6 @@
     opacity: 0.75;
 }
 
-// --- 2. Основное тело хедера ---
 .header__body {
     padding-block: var(--spacing-md);
 
@@ -103,7 +99,7 @@
     position: relative;
 }
 
-// --- Логотип ---
+// Логотип 
 .header__logo {
     @include flex-center(true);
     gap: var(--spacing-sm);
@@ -124,7 +120,7 @@
     }
 }
 
-// --- Бургер-кнопка (Скрыта на ноутбуке и десктопе, видна только на tablet) ---
+// Бургер-кнопка, скрыта на ноутбуке и десктопе
 .header__burger {
     display: none;
 
@@ -163,7 +159,6 @@
     }
 }
 
-// --- Навигационная панель / Оверлей ---
 .header__overlay {
     display: flex;
     align-items: center;
@@ -192,7 +187,7 @@
     }
 }
 
-// --- Меню (строго по центру на десктопе) ---
+// Меню 
 .header__menu {
     margin-inline: auto;
 
@@ -265,7 +260,7 @@
     }
 }
 
-// --- Блок авторизации / Кнопки ---
+// Блок авторизации 
 .header__sign {
     display: flex;
     align-items: center;

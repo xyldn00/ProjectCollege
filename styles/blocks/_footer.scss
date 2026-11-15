@@ -1,9 +1,5 @@
 @use '../helpers' as *;
 
-// ============================================
-// FOOTER COMPONENT
-// ============================================
-
 .footer {
     background-color: var(--color-dark);
     color: var(--color-text-light);
@@ -16,7 +12,7 @@
     }
 }
 
-// --- Основной блок футера ---
+// Основной блок  
 .footer__body {
     margin-bottom: var(--spacing-xl);
 
@@ -25,7 +21,7 @@
     }
 }
 
-// --- Сетка колонок ---
+// Сетка колонок
 .footer__menu {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1.5fr;
@@ -43,7 +39,7 @@
     }
 }
 
-// --- Колонка футера ---
+// Колонка футера
 .footer__menu-column {
     display: flex;
     flex-direction: column;
@@ -54,7 +50,7 @@
     }
 }
 
-// --- Заголовок колонки ---
+// Заголовок колонки 
 .footer__menu-name {
     color: var(--color-text-light);
     font-size: var(--font-size-lg);
@@ -76,7 +72,7 @@
     }
 }
 
-// --- Список элементов ---
+// Список элементов 
 .footer__menu-list {
     list-style: none;
     padding: 0;
@@ -86,7 +82,7 @@
     gap: var(--spacing-sm);
 }
 
-// --- Элементы списка и ссылки ---
+// Элементы списка и ссылки
 .footer__menu-item {
     color: var(--color-text-light);
     font-size: var(--font-size-base);
@@ -117,7 +113,7 @@
     }
 }
 
-// --- Нижняя полоса (Копирайт и правовая информация) ---
+// Нижняя полоса Copyright
 .footer__extra {
     border-top: #{rem(1)} solid rgba(255, 255, 255, 0.12);
     padding-top: var(--spacing-md);

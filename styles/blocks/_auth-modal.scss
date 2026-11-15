@@ -1,0 +1,143 @@
+@use '../helpers' as *;
+
+.auth-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: rem(16);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+    &.is-open {
+        opacity: 1;
+        visibility: visible;
+
+        .auth-modal__content {
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        background-color: rgba(9, 30, 66, 0.54);
+        backdrop-filter: blur(4px);
+    }
+
+    &__content {
+        position: relative;
+        background-color: var(--color-text-light);
+        border-radius: rem(12);
+        padding: rem(32);
+        width: 100%;
+        max-width: rem(420);
+        box-shadow: 0 20px 32px -8px rgba(9, 30, 66, 0.25);
+        transform: translateY(rem(16)) scale(0.95);
+        transition: transform 0.3s ease;
+
+        @include mobile {
+            padding: rem(24) rem(20);
+        }
+    }
+
+    &__close {
+        position: absolute;
+        top: rem(12);
+        right: rem(16);
+        background: transparent;
+        border: none;
+        font-size: rem(24);
+        color: #6b778c;
+        cursor: pointer;
+        line-height: 1;
+
+        @include hover {
+            color: var(--color-text-main);
+        }
+    }
+}
+
+.auth-form {
+    &.is-hidden {
+        display: none;
+    }
+
+    &__title {
+        font-size: rem(22);
+        font-weight: 700;
+        color: var(--color-text-main);
+        margin: 0 0 rem(20);
+        text-align: center;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: rem(14);
+    }
+
+    &__group {
+        display: flex;
+        flex-direction: column;
+        gap: rem(6);
+    }
+
+    &__label {
+        font-size: rem(13);
+        font-weight: 600;
+        color: var(--color-text-main);
+    }
+
+    &__input {
+        padding: rem(10) rem(14);
+        border: 1px solid var(--border-color-light);
+        border-radius: rem(6);
+        font-size: rem(14);
+        color: var(--color-text-main);
+        outline: none;
+        transition: border-color 0.2s ease;
+
+        &:focus {
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.15);
+        }
+    }
+
+    &__submit {
+        margin-top: rem(8);
+        padding: rem(12);
+        background-color: var(--color-primary);
+        color: var(--color-text-light);
+        border: none;
+        border-radius: rem(6);
+        font-weight: 600;
+        font-size: rem(14);
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        @include hover {
+            background-color: var(--color-primary-hover);
+        }
+    }
+
+    &__switch {
+        margin-top: rem(16);
+        text-align: center;
+        font-size: rem(13);
+        color: var(--color-text-secondary);
+
+        a {
+            color: var(--color-primary);
+            font-weight: 600;
+            text-decoration: none;
+
+            @include hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

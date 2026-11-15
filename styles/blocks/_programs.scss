@@ -1,9 +1,9 @@
 @use '../helpers' as *;
 
-// --- Шапка внутренней страницы ---
+// Шапка внутренней страницы
 .page-header {
-    background-color: var(--color-dark, #091e42);
-    color: #ffffff;
+    background-color: var(--color-dark);
+    color: var(--color-text-light);
     padding-block: rem(48);
 
     @include tablet {
@@ -52,7 +52,7 @@
         text-decoration: none;
 
         @include hover {
-            color: #ffffff;
+            color: var(--color-text-light);
             text-decoration: underline;
         }
     }
@@ -62,7 +62,7 @@
     }
 
     &__current {
-        color: var(--color-accent, #0099ff);
+        color: var(--color-accent);
         font-weight: 600;
     }
 }
@@ -79,7 +79,7 @@
     strong {
         font-size: rem(22);
         font-weight: 800;
-        color: var(--color-accent, #0099ff);
+        color: var(--color-accent);
         line-height: 1.1;
     }
 
@@ -89,7 +89,7 @@
     }
 }
 
-// --- Фильтры каталога ---
+// Фильтры каталога
 .catalog-filters {
     display: flex;
     align-items: center;
@@ -97,12 +97,12 @@
     flex-wrap: wrap;
     margin-bottom: rem(32);
     padding-bottom: rem(20);
-    border-bottom: 1px solid #dfe1e6;
+    border-bottom: 1px solid var(--border-color-light);
 
     &__label {
         font-size: rem(14);
         font-weight: 600;
-        color: var(--color-text-main, #172b4d);
+        color: var(--color-text-main);
     }
 
     &__buttons {
@@ -115,27 +115,27 @@
 .filter-btn {
     padding: rem(8) rem(16);
     border-radius: var(--border-radius-full, 999px);
-    border: 1px solid #dfe1e6;
-    background-color: #ffffff;
-    color: var(--color-text-main, #172b4d);
+    border: 1px solid var(--border-color-light);
+    background-color: var(--color-text-light);
+    color: var(--color-text-main);
     font-size: rem(14);
     font-weight: 600;
     cursor: pointer;
     transition: var(--transition-normal);
 
     @include hover {
-        border-color: var(--color-primary, #0052cc);
-        color: var(--color-primary, #0052cc);
+        border-color: var(--color-primary);
+        color: var(--color-primary);
     }
 
     &.is-active {
-        background-color: var(--color-primary, #0052cc);
-        border-color: var(--color-primary, #0052cc);
-        color: #ffffff;
+        background-color: var(--color-primary);
+        border-color: var(--color-primary);
+        color: var(--color-text-light);
     }
 }
 
-// --- Сетка карточек специальностей ---
+// Сетка карточек специальностей 
 .catalog__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -151,8 +151,8 @@
 }
 
 .spec-card {
-    background-color: #ffffff;
-    border: 1px solid #dfe1e6;
+    background-color: var(--color-text-light);
+    border: 1px solid var(--border-color-light);
     border-radius: var(--border-radius-md, rem(12));
     padding: rem(24);
     display: flex;
@@ -162,7 +162,7 @@
     @include hover {
         transform: translateY(rem(-4));
         box-shadow: var(--shadow-md);
-        border-color: var(--color-primary, #0052cc);
+        border-color: var(--color-primary);
     }
 
     &.is-hidden {
@@ -180,8 +180,8 @@
     &__code {
         font-size: rem(13);
         font-weight: 700;
-        color: var(--color-primary, #0052cc);
-        background-color: var(--color-primary-light, #e6f0ff);
+        color: var(--color-primary);
+        background-color: var(--color-primary-light);
         padding: rem(4) rem(10);
         border-radius: var(--border-radius-sm, rem(6));
     }
@@ -194,26 +194,26 @@
 
         &--budget {
             background-color: #e3fcef;
-            color: #006644;
+            color: var(--color-success);
         }
 
         &--paid {
-            background-color: #f4f5f7;
-            color: #5e6c84;
+            background-color: var(--color-body-bg);
+            color: var(--color-text-secondary);
         }
     }
 
     &__title {
         @include fluid-text(19, 17);
         font-weight: 700;
-        color: var(--color-text-main, #172b4d);
+        color: var(--color-text-main);
         margin: 0 0 rem(10);
         line-height: 1.35;
     }
 
     &__desc {
         @include fluid-text(14, 13);
-        color: #5e6c84;
+        color: var(--color-text-secondary);
         line-height: 1.5;
         margin: 0 0 rem(20);
         flex-grow: 1;
@@ -223,8 +223,8 @@
         list-style: none;
         padding: rem(14) 0;
         margin: 0 0 rem(20);
-        border-top: 1px solid #ebecf0;
-        border-bottom: 1px solid #ebecf0;
+        border-top: 1px solid var(--border-color-light);
+        border-bottom: 1px solid var(--border-color-light);
         display: flex;
         flex-direction: column;
         gap: rem(8);
@@ -233,20 +233,20 @@
             display: flex;
             justify-content: space-between;
             font-size: rem(13);
-            color: #5e6c84;
+            color: var(--color-text-secondary);
 
             strong {
-                color: var(--color-text-main, #172b4d);
+                color: var(--color-text-main);
                 font-weight: 600;
             }
         }
     }
 }
 
-// --- Блок правил поступления ---
+// Блок правил поступления
 .admission-box {
-    background-color: #ffffff;
-    border: 1px solid #dfe1e6;
+    background-color: var(--color-text-light);
+    border: 1px solid var(--border-color-light);
     border-radius: var(--border-radius-md, rem(12));
     padding: rem(32);
     display: grid;
@@ -260,20 +260,20 @@
     }
 
     &__cta {
-        background-color: var(--color-primary-light, #e6f0ff);
+        background-color: var(--color-primary-light);
         border-radius: var(--border-radius-md, rem(10));
         padding: rem(24);
 
         h3 {
             font-size: rem(18);
             font-weight: 700;
-            color: var(--color-text-main, #172b4d);
+            color: var(--color-text-main);
             margin: 0 0 rem(8);
         }
 
         p {
             font-size: rem(14);
-            color: #42526e;
+            color: var(--color-text-main);
             line-height: 1.5;
             margin: 0 0 rem(18);
         }
@@ -297,8 +297,8 @@
         width: rem(36);
         height: rem(36);
         border-radius: 50%;
-        background-color: var(--color-primary, #0052cc);
-        color: #ffffff;
+        background-color: var(--color-primary);
+        color: var(--color-text-light);
         font-weight: 700;
         font-size: rem(14);
         display: flex;
@@ -309,13 +309,13 @@
     strong {
         display: block;
         font-size: rem(15);
-        color: var(--color-text-main, #172b4d);
+        color: var(--color-text-main);
         margin-bottom: rem(4);
     }
 
     p {
         font-size: rem(14);
-        color: #5e6c84;
+        color: var(--color-text-secondary);
         margin: 0;
         line-height: 1.45;
     }

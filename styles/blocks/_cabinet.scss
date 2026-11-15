@@ -12,8 +12,8 @@
 }
 
 .profile-card {
-    background-color: #ffffff;
-    border: 1px solid #dfe1e6;
+    background-color: var(--color-text-light);
+    border: 1px solid var(--border-color-light);
     border-radius: var(--border-radius-md, rem(12));
     padding: rem(28);
     text-align: center;
@@ -22,8 +22,8 @@
         width: rem(72);
         height: rem(72);
         border-radius: 50%;
-        background-color: var(--color-primary-light, #e6f0ff);
-        color: var(--color-primary, #0052cc);
+        background-color: var(--color-primary-light);
+        color: var(--color-primary);
         font-size: rem(36);
         display: flex;
         align-items: center;
@@ -34,17 +34,17 @@
     &__name {
         @include fluid-text(18, 16);
         font-weight: 700;
-        color: var(--color-text-main, #172b4d);
+        color: var(--color-text-main);
         margin: 0 0 rem(4);
     }
 
     &__role {
         display: inline-block;
         font-size: rem(13);
-        color: #5e6c84;
+        color: var(--color-text-secondary);
         margin-bottom: rem(20);
         padding: rem(3) rem(10);
-        background-color: #f4f5f7;
+        background-color: var(--color-body-bg);
         border-radius: var(--border-radius-full, 999px);
     }
 }
@@ -53,7 +53,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    border-top: 1px solid #ebecf0;
+    border-top: 1px solid var(--border-color-light);
     padding-top: rem(16);
     display: flex;
     flex-direction: column;
@@ -64,18 +64,18 @@
         display: flex;
         justify-content: space-between;
         font-size: rem(13);
-        color: #5e6c84;
+        color: var(--color-text-secondary);
 
         strong {
-            color: var(--color-text-main, #172b4d);
+            color: var(--color-text-main);
             font-weight: 600;
         }
     }
 }
 
 .cabinet-box {
-    background-color: #ffffff;
-    border: 1px solid #dfe1e6;
+    background-color: var(--color-text-light);
+    border: 1px solid var(--border-color-light);
     border-radius: var(--border-radius-md, rem(12));
     padding: rem(28);
 
@@ -89,7 +89,7 @@
         align-items: flex-start;
         gap: rem(16);
         flex-wrap: wrap;
-        border-bottom: 1px solid #ebecf0;
+        border-bottom: 1px solid var(--border-color-light);
         padding-bottom: rem(16);
     }
 }

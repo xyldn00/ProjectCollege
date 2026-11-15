@@ -14,7 +14,7 @@
 .about-text {
     p {
         @include fluid-text(16, 14);
-        color: #5e6c84;
+        color: var(--color-text-secondary);
         line-height: 1.6;
         margin: 0 0 rem(16);
     }
@@ -33,18 +33,18 @@
     strong {
         @include fluid-text(28, 22);
         font-weight: 800;
-        color: var(--color-primary, #0052cc);
+        color: var(--color-primary);
     }
 
     span {
         font-size: rem(13);
-        color: #6b778c;
+        color: var(--color-text-secondary);
     }
 }
 
 .about-card-highlight {
-    background: linear-gradient(135deg, var(--color-dark, #091e42) 0%, #153266 100%);
-    color: #ffffff;
+    background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-surface) 100%);
+    color: var(--color-text-light);
     border-radius: var(--border-radius-md, rem(12));
     padding: rem(32);
 
@@ -52,7 +52,7 @@
         @include fluid-text(22, 18);
         font-weight: 700;
         margin: 0 0 rem(12);
-        color: var(--color-accent, #0099ff);
+        color: var(--color-accent);
     }
 
     p {
@@ -78,8 +78,8 @@
 }
 
 .facility-card {
-    background-color: #ffffff;
-    border: 1px solid #dfe1e6;
+    background-color: var(--color-text-light);
+    border: 1px solid var(--border-color-light);
     border-radius: var(--border-radius-md, rem(10));
     padding: rem(24);
     display: flex;
@@ -93,13 +93,13 @@
     h3 {
         @include fluid-text(18, 16);
         font-weight: 700;
-        color: var(--color-text-main, #172b4d);
+        color: var(--color-text-main);
         margin: 0 0 rem(8);
     }
 
     p {
         @include fluid-text(14, 13);
-        color: #5e6c84;
+        color: var(--color-text-secondary);
         line-height: 1.5;
         margin: 0;
     }
@@ -116,25 +116,25 @@
 }
 
 .contact-info-card {
-    background-color: #ffffff;
-    border: 1px solid #dfe1e6;
+    background-color: var(--color-text-light);
+    border: 1px solid var(--border-color-light);
     border-radius: var(--border-radius-md, rem(12));
     padding: rem(32);
 
     h3 {
         @include fluid-text(20, 18);
         font-weight: 700;
-        color: var(--color-text-main, #172b4d);
+        color: var(--color-text-main);
         margin: 0 0 rem(16);
     }
 
     &--accent {
-        background-color: var(--color-primary-light, #e6f0ff);
+        background-color: var(--color-primary-light);
         border-color: rgba(0, 82, 204, 0.2);
 
         p {
             font-size: rem(15);
-            color: #42526e;
+            color: var(--color-text-main);
             line-height: 1.5;
             margin: 0 0 rem(10);
         }
@@ -153,12 +153,12 @@
         display: flex;
         justify-content: space-between;
         font-size: rem(14);
-        color: #5e6c84;
-        border-bottom: 1px solid #ebecf0;
+        color: var(--color-text-secondary);
+        border-bottom: 1px solid var(--border-color-light);
         padding-bottom: rem(8);
 
         strong {
-            color: var(--color-text-main, #172b4d);
+            color: var(--color-text-main);
             font-weight: 600;
         }
     }

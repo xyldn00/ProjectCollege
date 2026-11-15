@@ -1,7 +1,7 @@
 @use 'helpers' as *;
 
 :root{
-// --- Цветовая палитра (в стиле МАИ) ---
+// Цветовая палитра
     --color-primary: #0052cc;          
     --color-primary-hover: #0040a8;    
     --color-primary-light: #e6f0ff;    
@@ -15,23 +15,23 @@
     --color-text-secondary: #5e6c84;   
     --color-text-light: #ffffff;       
 
-    // --- Статусы и уведомления ---
+    // Статусы и уведомления 
     --color-success: #00875a;          
     --color-warning: #ffab00;          
     --color-danger: #de350b;           
 
-    // --- Шрифты ---
+    // Шрифты
     --font-family-headings: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-family-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
-    // --- Размеры шрифтов ---
+    // Размеры шрифтов 
     --font-size-sm:   #{rem(14)};      
     --font-size-base: #{rem(16)};      
     --font-size-lg:   #{rem(18)};      
     --font-size-h2:   #{rem(25.6)};    
     --font-size-h1:   #{rem(35.2)};    
 
-    // --- Отступы (Spacing) ---
+    // Отступы 
     --spacing-xs: #{rem(4)};           
     --spacing-sm: #{rem(8)};           
     --spacing-md: #{rem(16)};          
@@ -39,19 +39,19 @@
     --spacing-xl: #{rem(40)};          
     --spacing-xxl: #{rem(1600)};       
 
-    // --- Скругления (Border Radius) ---
+    // Скругления
     --border-radius-sm:   #{rem(6)};   
     --border-radius-md:   #{rem(10)};  
     --border-radius-lg:   #{rem(16)};  
     --border-radius-full: #{rem(9999)}; 
 
-    // --- Тени и границы ---
+    // Тени и границы
     --border-color-light: #dfe1e6;
     --shadow-sm: 0 #{rem(2)} #{rem(8)} rgba(9, 30, 66, 0.08);
     --shadow-md: 0 #{rem(6)} #{rem(16)} rgba(9, 30, 66, 0.12);
     --shadow-lg: 0 #{rem(12)} #{rem(32)} rgba(9, 30, 66, 0.16);
 
-    // --- Переходы и анимации ---
+    // Переходы и анимации 
     --transition-duration: 0.2s;
     --transition-normal: 0.3s ease;
 

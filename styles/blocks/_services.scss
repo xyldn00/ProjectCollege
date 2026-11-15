@@ -1,9 +1,5 @@
 @use '../helpers' as *;
 
-// ============================================
-// SERVICES PAGE & ELECTRONIC SERVICES STYLES
-// ============================================
-
 .services__layout {
     display: grid;
     grid-template-columns: 1.1fr 1fr;
@@ -17,8 +13,8 @@
 
 .services__form-box,
 .services__tracker-box {
-    background-color: #ffffff;
-    border: 1px solid #dfe1e6;
+    background-color: var(--color-text-light);
+    border: 1px solid var(--border-color-light);
     border-radius: var(--border-radius-md, rem(12));
     padding: rem(32);
 
@@ -28,10 +24,10 @@
 }
 
 .services__tracker-box {
-    background-color: #fafbfc;
+    background-color: var(--color-body-bg);
 }
 
-// --- Форма подачи заявки ---
+// Форма подачи заявки
 .service-form {
     margin-top: rem(24);
     display: flex;
@@ -58,21 +54,21 @@
 .form-label {
     font-size: rem(14);
     font-weight: 600;
-    color: var(--color-text-main, #172b4d);
+    color: var(--color-text-main);
 }
 
 .form-control {
     padding: rem(10) rem(14);
-    border: 1px solid #c1c7d0;
+    border: 1px solid var(--border-color-light);
     border-radius: var(--border-radius-sm, rem(6));
     font-size: rem(14);
-    color: var(--color-text-main, #172b4d);
-    background-color: #ffffff;
+    color: var(--color-text-main);
+    background-color: var(--color-text-light);
     transition: var(--transition-normal);
 
     &:focus {
         outline: none;
-        border-color: var(--color-primary, #0052cc);
+        border-color: var(--color-primary);
         box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.15);
     }
 }
@@ -82,7 +78,7 @@ textarea.form-control {
     min-height: rem(90);
 }
 
-// --- Трекер статусов заявок ---
+// Трекер статусов заявок 
 .tracker-header {
     display: flex;
     justify-content: space-between;
@@ -94,22 +90,22 @@ textarea.form-control {
         @include fluid-text(20, 18);
         font-weight: 700;
         margin: 0;
-        color: var(--color-text-main, #172b4d);
+        color: var(--color-text-main);
     }
 
     &__tag {
         font-size: rem(12);
         font-weight: 600;
         padding: rem(4) rem(10);
-        background-color: #e6f0ff;
-        color: var(--color-primary, #0052cc);
+        background-color: var(--color-primary-light);
+        color: var(--color-primary);
         border-radius: var(--border-radius-full, 999px);
     }
 }
 
 .tracker-desc {
     font-size: rem(14);
-    color: #5e6c84;
+    color: var(--color-text-secondary);
     line-height: 1.5;
     margin: 0 0 rem(20);
 }
@@ -121,8 +117,8 @@ textarea.form-control {
 }
 
 .tracker-item {
-    background-color: #ffffff;
-    border: 1px solid #dfe1e6;
+    background-color: var(--color-text-light);
+    border: 1px solid var(--border-color-light);
     border-radius: var(--border-radius-sm, rem(8));
     padding: rem(14) rem(16);
     display: flex;
@@ -137,17 +133,17 @@ textarea.form-control {
 
         strong {
             font-size: rem(14);
-            color: var(--color-text-main, #172b4d);
+            color: var(--color-text-main);
         }
 
         span {
             font-size: rem(12);
-            color: #6b778c;
+            color: var(--color-text-secondary);
         }
     }
 }
 
-// --- Статусы бейджей ---
+// Статусы бейджей 
 .status-badge {
     padding: rem(5) rem(12);
     border-radius: var(--border-radius-full, 999px);
@@ -157,17 +153,17 @@ textarea.form-control {
 
     &--approved {
         background-color: #e3fcef;
-        color: #006644;
+        color: var(--color-success);
     }
 
     &--process {
         background-color: #fffae6;
-        color: #ff8b00;
+        color: var(--color-warning);
     }
 
     &--rejected {
         background-color: #ffebe6;
-        color: #bf2600;
+        color: var(--color-danger);
     }
 }
 
@@ -188,12 +184,12 @@ textarea.form-control {
 
     // --- Основная кнопка (Primary - Синяя) ---
     &--primary {
-        background-color: var(--color-primary, #0052cc);
-        color: #ffffff;
+        background-color: var(--color-primary);
+        color: var(--color-text-light);
         box-shadow: var(--shadow-sm);
 
         @include hover {
-            background-color: var(--color-primary-hover, #0040a8);
+            background-color: var(--color-primary-hover);
             box-shadow: var(--shadow-md);
             transform: translateY(rem(-1));
         }
@@ -203,10 +199,9 @@ textarea.form-control {
         }
     }
 
-    // --- Вторичная кнопка (Secondary - Прозрачная/Темная) ---
     &--secondary {
         background-color: rgba(255, 255, 255, 0.12);
-        color: #ffffff;
+        color: var(--color-text-light);
         border: 1px solid rgba(255, 255, 255, 0.25);
 
         @include hover {
@@ -215,23 +210,20 @@ textarea.form-control {
         }
     }
 
-    // --- Контурная кнопка (Outline - С обводкой) ---
     &--outline {
         background-color: transparent;
-        color: var(--color-primary, #0052cc);
-        border: 1px solid var(--color-primary, #0052cc);
+        color: var(--color-primary);
+        border: 1px solid var(--color-primary);
 
         @include hover {
-            background-color: var(--color-primary-light, #e6f0ff);
+            background-color: var(--color-primary-light);
         }
     }
 
-    // --- Кнопка на всю ширину контейнера ---
     &--full {
         width: 100%;
     }
 
-    // --- Маленькая кнопка (для таблиц, трекеров, карточек) ---
     &--sm {
         padding: rem(8) rem(14);
         font-size: rem(13);

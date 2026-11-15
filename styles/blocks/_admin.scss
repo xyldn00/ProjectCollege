@@ -1,0 +1,219 @@
+@use '../helpers' as *;
+
+.admin-page {
+    background-color: var(--color-body-bg);
+    min-height: 100vh;
+    margin: 0;
+    font-family: inherit;
+    color: var(--color-text-main);
+}
+
+.page-header--admin {
+    padding: 40px 0;
+    background-color: var(--color-text-light);
+    border-bottom: 1px solid var(--border-color-light);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+
+    &__badge {
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 10px;
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--color-primary);
+        background-color: var(--color-primary-light);
+        border-radius: 20px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    &__info {
+        .page-header__title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--color-text-main);
+            margin-bottom: 6px;
+        }
+
+        .page-header__desc {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            margin: 0;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.admin-panel {
+    background-color: var(--color-text-light);
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 10px 30px rgba(23, 43, 77, 0.04);
+    border: 1px solid var(--border-color-light);
+    margin-top: -10px;
+
+    &__table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    &__message {
+        margin-top: 20px;
+        font-size: 14px;
+        font-weight: 500;
+        text-align: center;
+        min-height: 20px;
+
+        &.is-error {
+            color: var(--color-danger);
+        }
+
+        &.is-success {
+            color: var(--color-success);
+        }
+    }
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 14px;
+
+    th {
+        padding: 16px 14px;
+        font-weight: 600;
+        color: #6b778c;
+        background-color: var(--color-body-bg);
+        border-bottom: 2px solid var(--border-color-light);
+        white-space: nowrap;
+
+        &:first-child {
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+
+        &:last-child {
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+    }
+
+    td {
+        padding: 16px 14px;
+        border-bottom: 1px solid #f0f2f5;
+        vertical-align: middle;
+    }
+
+    tbody tr {
+        transition: background-color 0.2s ease;
+
+        &:hover {
+            background-color: #fafbfc;
+        }
+    }
+
+    &__id {
+        font-weight: 700;
+        color: #42526e;
+    }
+
+    &__student {
+        strong {
+            display: block;
+            margin-bottom: 2px;
+            color: var(--color-text-main);
+            font-weight: 600;
+        }
+
+        span {
+            font-size: 12px;
+            color: #7a869a;
+        }
+    }
+
+    &__comment {
+        color: var(--color-text-secondary);
+        max-width: 220px;
+        word-break: break-word;
+    }
+
+    &__date {
+        font-size: 12px;
+        color: #7a869a;
+        white-space: nowrap;
+    }
+
+    &__th-actions,
+    &__actions {
+        text-align: right;
+        white-space: nowrap;
+    }
+
+    &__actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+    }
+
+    &__empty {
+        text-align: center;
+        padding: 40px 12px;
+        color: #7a869a;
+    }
+}
+
+// Кнопки управления в таблице
+.btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    font-size: 13px;
+
+    &--danger {
+        background-color: #ffebe6;
+        color: var(--color-danger);
+
+        &:hover {
+            background-color: var(--color-danger);
+            color: var(--color-text-light);
+        }
+    }
+
+    &--approve {
+        background-color: #e3fcef;
+        color: var(--color-success);
+        padding: 6px 14px;
+
+        &:hover {
+            background-color: var(--color-success);
+            color: var(--color-text-light);
+        }
+    }
+
+    &--reject {
+        background-color: #ffebe6;
+        color: var(--color-danger);
+        padding: 6px 14px;
+
+        &:hover {
+            background-color: var(--color-danger);
+            color: var(--color-text-light);
+        }
+    }
+}

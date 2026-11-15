@@ -51,13 +51,13 @@ class ProgramManager {
     }
 
     updateView() {
-        // 1. Фильтрация
+        // Фильтрация
         let filtered = this.cardsData.filter(item => {
             if (this.currentFilter === 'all') return true
             return item.base === this.currentFilter
         })
 
-        // 2. Сортировка
+        // Сортировка
         filtered.sort((a, b) => {
             if (this.currentSort === 'title-asc') {
                 return a.title.localeCompare(b.title)
@@ -69,7 +69,7 @@ class ProgramManager {
             return 0
         })
 
-        // 3. Рендеринг в DOM
+        // Рендеринг в DOM
         this.cardsData.forEach(item => item.element.classList.add(this.stateClasses.isHidden))
 
         filtered.forEach(item => {

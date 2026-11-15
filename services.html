@@ -64,7 +64,7 @@
                 </li>
             </ul>
         </nav>
-        <div class="header__sign">
+        <div class="header__sign" data-js-header-sign>
             <button class="header__sign-signin">Вход</button>
             <button class="header__sign-signup">Регистрация</button>
         </div>
@@ -82,7 +82,6 @@
     </header>
 
     <main class="main">
-        <!-- Шапка раздела -->
         <section class="page-header">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
@@ -101,7 +100,6 @@
             </div>
         </section>
 
-        <!-- Основной контент: Форма заказа и трекер статусов -->
         <section class="section">
             <div class="container">
                 <div class="services__layout">
@@ -115,11 +113,11 @@
                                 <label class="form-label" for="doc-type">Тип документа</label>
                                 <select class="form-control" id="doc-type" required>
                                     <option value="">-- Выберите справку из списка --</option>
-                                    <option value="getplace">Справка для поступления в колледж</option>
-                                    <option value="study">Справка об обучении (по месту требования)</option>
-                                    <option value="military">Справка для военного комиссариата (Приложение №4)</option>
-                                    <option value="grades">Выписка из зачетной ведомости</option>
-                                    <option value="scholarship">Справка о размере академической стипендии</option>
+                                    <option value="Справка для поступления в колледж">Справка для поступления в колледж</option>
+                                    <option value="Справка об обучении">Справка об обучении (по месту требования)</option>
+                                    <option value="Справка для военного комиссариата">Справка для военного комиссариата (Приложение №4)</option>
+                                    <option value="Выписка из зачетной ведомости">Выписка из зачетной ведомости</option>
+                                    <option value="Справка о размере академической стипендии">Справка о размере академической стипендии</option>
                                 </select>
                             </div>
 
@@ -143,10 +141,13 @@
                             </div>
 
                             <button type="submit" class="btn btn--primary btn--full">Отправить заявку в обработку</button>
+                            
+                            <!-- Текст для вывода статуса отправки прямо на странице -->
+                            <p data-js-service-message style="margin-top: 14px; font-size: 14px; text-align: center; font-weight: 500;"></p>
                         </form>
                     </div>
 
-                    <!-- Правая колонка: Превью статусов (как в личном кабинете) -->
+                    <!-- Правая колонка: Превью статусов -->
                     <div class="services__tracker-box">
                         <div class="tracker-header">
                             <h3 class="tracker-header__title">Статусы ваших заявок</h3>
@@ -161,20 +162,6 @@
                                     <span>Создана: сегодня, 12:40</span>
                                 </div>
                                 <span class="status-badge status-badge--process">В обработке</span>
-                            </div>
-                            <div class="tracker-item">
-                                <div class="tracker-item__info">
-                                    <strong>Заявка #1032 — Справка в военкомат</strong>
-                                    <span>Создана: 10.11.2026</span>
-                                </div>
-                                <span class="status-badge status-badge--approved">Одобрена</span>
-                            </div>
-                            <div class="tracker-item">
-                                <div class="tracker-item__info">
-                                    <strong>Заявка #1021 — Архивная выписка</strong>
-                                    <span>Причина: некорректный курс</span>
-                                </div>
-                                <span class="status-badge status-badge--rejected">Отклонена</span>
                             </div>
                         </div>
 
@@ -194,7 +181,7 @@
                     <div class="footer__menu-column">
                         <h3 class="footer__menu-name"><img src="./icon/logo.svg" alt=""></h3>
                         <ul class="footer__menu-list">
-                            <li class="footer__menu-item"><p>Информационная система управления заявками и студенческими сервисами.  </p></li>
+                            <li class="footer__menu-item"><p>Информационная система управления заявками и студенческими сервисами.</p></li>
                         </ul>
                     </div>
 
@@ -228,5 +215,55 @@
             </div>
         </div>
     </footer>
+
+    <!-- Модальное окно авторизации и регистрации -->
+    <div class="auth-modal" data-js-auth-modal>
+        <div class="auth-modal__overlay" data-js-auth-modal-overlay></div>
+        <div class="auth-modal__content">
+            <button class="auth-modal__close" data-js-auth-modal-close aria-label="Закрыть" type="button">&times;</button>
+            
+            <!-- Форма Входа -->
+            <div class="auth-form" data-js-auth-tab="signin">
+                <h2 class="auth-form__title">Вход в систему</h2>
+                <form class="auth-form__form" onsubmit="event.preventDefault();">
+                    <div class="auth-form__group">
+                        <label class="auth-form__label">Email или логин</label>
+                        <input class="auth-form__input" type="email" required placeholder="student@college.ru">
+                    </div>
+                    <div class="auth-form__group">
+                        <label class="auth-form__label">Пароль</label>
+                        <input class="auth-form__input" type="password" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="auth-form__submit">Войти</button>
+                </form>
+                <p class="auth-form__switch">
+                    Нет аккаунта? <a href="#" data-js-auth-switch="signup">Зарегистрироваться</a>
+                </p>
+            </div>
+
+            <!-- Форма Регистрации -->
+            <div class="auth-form is-hidden" data-js-auth-tab="signup">
+                <h2 class="auth-form__title">Регистрация</h2>
+                <form class="auth-form__form" onsubmit="event.preventDefault();">
+                    <div class="auth-form__group">
+                        <label class="auth-form__label">ФИО</label>
+                        <input class="auth-form__input" type="text" required placeholder="Иванов Иван">
+                    </div>
+                    <div class="auth-form__group">
+                        <label class="auth-form__label">Email</label>
+                        <input class="auth-form__input" type="email" required placeholder="student@college.ru">
+                    </div>
+                    <div class="auth-form__group">
+                        <label class="auth-form__label">Пароль</label>
+                        <input class="auth-form__input" type="password" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="auth-form__submit">Создать аккаунт</button>
+                </form>
+                <p class="auth-form__switch">
+                    Уже есть аккаунт? <a href="#" data-js-auth-switch="signin">Войти</a>
+                </p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

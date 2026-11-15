@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/main.css">
     <script defer src="js/main.js" type="module"></script>
-    <title>MAI</title>
+    <title>Личный кабинет — ИС Колледжа</title>
 </head>
 <body>
     <header class="header" data-js-header>
@@ -64,7 +64,7 @@
                 </li>
             </ul>
         </nav>
-        <div class="header__sign">
+        <div class="header__sign" data-js-header-sign>
             <button class="header__sign-signin">Вход</button>
             <button class="header__sign-signup">Регистрация</button>
         </div>
@@ -81,7 +81,7 @@
         </div>
     </header>
 
-    <main class="main">
+    <main class="main" data-js-cabinet>
         <!-- Шапка страницы -->
         <section class="page-header">
             <div class="container">
@@ -93,38 +93,49 @@
                 <div class="page-header__content">
                     <div>
                         <h1 class="page-header__title">Личный кабинет студента</h1>
-                        <p class="page-header__desc">
-                            Управление профилем, просмотр личных данных и отслеживание статусов электронных заявок.
-                        </p>
+                        <p class="page-header__desc">Управление профилем и отслеживание статусов электронных заявок.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Контент личного кабинета -->
-        <section class="section">
+        <!-- ЕСЛИ НЕ АВТОРИЗОВАН -->
+        <section class="section" data-js-cabinet-auth-required>
+            <div class="container" style="text-align: center; padding: 40px 0;">
+                <div class="cabinet-box" style="max-width: 500px; margin: 0 auto; padding: 40px;">
+                    <div style="font-size: 48px; margin-bottom: 16px;">🔒</div>
+                    <h2 class="section__title" style="margin-bottom: 12px; font-size: 22px;">Требуется авторизация</h2>
+                    <p class="section__desc" style="margin-bottom: 24px; font-size: 14px;">
+                        Чтобы просматривать личный кабинет, историю справок и управлять профилем, пожалуйста, войдите в систему.
+                    </p>
+                    <button class="header__sign-signin btn btn--primary" style="padding: 10px 24px; cursor: pointer;">Войти в аккаунт</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЕСЛИ АВТОРИЗОВАН -->
+        <section class="section is-hidden" data-js-cabinet-content>
             <div class="container">
                 <div class="cabinet-layout">
-                    
-                    <!-- Левая колонка: Профиль пользователя -->
+                    <!-- Левая колонка: Профиль -->
                     <aside class="cabinet-sidebar">
                         <div class="profile-card">
                             <div class="profile-card__avatar">👤</div>
-                            <h2 class="profile-card__name">Иванов Алексей Дмитриевич</h2>
+                            <h2 class="profile-card__name" data-js-profile-name>Загрузка...</h2>
                             <span class="profile-card__role">Студент очной формы</span>
 
                             <ul class="profile-info-list">
-                                <li><span>Специальность:</span> <strong>09.02.07 ИСП</strong></li>
-                                <li><span>Группа:</span> <strong>ИСП-21</strong></li>
-                                <li><span>Курс:</span> <strong>2 курс</strong></li>
-                                <li><span>Email:</span> <strong>a.ivanov@student.college.ru</strong></li>
+                                <li><span>Специальность:</span> <strong data-js-profile-specialty>-</strong></li>
+                                <li><span>Группа:</span> <strong data-js-profile-group>-</strong></li>
+                                <li><span>Курс:</span> <strong data-js-profile-course>-</strong></li>
+                                <li><span>Email:</span> <strong data-js-profile-email>-</strong></li>
                             </ul>
 
-                            <a href="auth.html" class="btn btn--outline btn--full" style="margin-top: 20px; color: #bf2600; border-color: #ffd2cc;">Выйти из аккаунта</a>
+                            <button id="logout-btn" data-js-logout-button class="btn btn--outline btn--full" style="margin-top: 20px; color: #bf2600; border-color: #ffd2cc; cursor: pointer;">Выйти из аккаунта</button>
                         </div>
                     </aside>
 
-                    <!-- Правая колонка: Управление заявками -->
+                    <!-- Правая колонка: Заявки на справки -->
                     <div class="cabinet-content">
                         <div class="cabinet-box">
                             <div class="cabinet-box__header">
@@ -135,34 +146,11 @@
                                 <a href="services.html" class="btn btn--primary btn--sm">+ Заказать справку</a>
                             </div>
 
-                            <div class="tracker-list" style="margin-top: 20px;">
-                                <div class="tracker-item">
-                                    <div class="tracker-item__info">
-                                        <strong>Заявка #1045 — Справка об обучении</strong>
-                                        <span>Подана: сегодня, 12:40 • Получение: Электронный PDF</span>
-                                    </div>
-                                    <span class="status-badge status-badge--process">В обработке</span>
-                                </div>
-
-                                <div class="tracker-item">
-                                    <div class="tracker-item__info">
-                                        <strong>Заявка #1032 — Справка для военного комиссариата</strong>
-                                        <span>Подана: 10.11.2026 • Получение: Бумажный оригинал</span>
-                                    </div>
-                                    <span class="status-badge status-badge--approved">Одобрена</span>
-                                </div>
-
-                                <div class="tracker-item">
-                                    <div class="tracker-item__info">
-                                        <strong>Заявка #1021 — Выписка из зачетной ведомости</strong>
-                                        <span>Подана: 01.10.2026 • Причина отмены: неверный семестр</span>
-                                    </div>
-                                    <span class="status-badge status-badge--rejected">Отклонена</span>
-                                </div>
+                            <div class="tracker-list" data-js-requests-list style="margin-top: 20px;">
+                                <p style="color: #5e6c84; font-size: 14px;">Загрузка заявок...</p>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -175,7 +163,7 @@
                     <div class="footer__menu-column">
                         <h3 class="footer__menu-name"><img src="./icon/logo.svg" alt=""></h3>
                         <ul class="footer__menu-list">
-                            <li class="footer__menu-item"><p>Информационная система управления заявками и студенческими сервисами.  </p></li>
+                            <li class="footer__menu-item"><p>Информационная система управления заявками и студенческими сервисами.</p></li>
                         </ul>
                     </div>
 
@@ -209,5 +197,55 @@
             </div>
         </div>
     </footer>
+
+    <!-- Модальное окно авторизации и регистрации -->
+    <div class="auth-modal" data-js-auth-modal>
+        <div class="auth-modal__overlay" data-js-auth-modal-overlay></div>
+        <div class="auth-modal__content">
+            <button class="auth-modal__close" data-js-auth-modal-close aria-label="Закрыть" type="button">&times;</button>
+            
+            <!-- Форма Входа -->
+            <div class="auth-form" data-js-auth-tab="signin">
+                <h2 class="auth-form__title">Вход в систему</h2>
+                <form class="auth-form__form" onsubmit="event.preventDefault();">
+                    <div class="auth-form__group">
+                        <label class="auth-form__label">Email или логин</label>
+                        <input class="auth-form__input" type="email" required placeholder="student@college.ru">
+                    </div>
+                    <div class="auth-form__group">
+                        <label class="auth-form__label">Пароль</label>
+                        <input class="auth-form__input" type="password" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="auth-form__submit">Войти</button>
+                </form>
+                <p class="auth-form__switch">
+                    Нет аккаунта? <a href="#" data-js-auth-switch="signup">Зарегистрироваться</a>
+                </p>
+            </div>
+
+            <!-- Форма Регистрации -->
+            <div class="auth-form is-hidden" data-js-auth-tab="signup">
+                <h2 class="auth-form__title">Регистрация</h2>
+                <form class="auth-form__form" onsubmit="event.preventDefault();">
+                    <div class="auth-form__group">
+                        <label class="auth-form__label">ФИО</label>
+                        <input class="auth-form__input" type="text" required placeholder="Иванов Иван">
+                    </div>
+                    <div class="auth-form__group">
+                        <label class="auth-form__label">Email</label>
+                        <input class="auth-form__input" type="email" required placeholder="student@college.ru">
+                    </div>
+                    <div class="auth-form__group">
+                        <label class="auth-form__label">Пароль</label>
+                        <input class="auth-form__input" type="password" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="auth-form__submit">Создать аккаунт</button>
+                </form>
+                <p class="auth-form__switch">
+                    Уже есть аккаунт? <a href="#" data-js-auth-switch="signin">Войти</a>
+                </p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

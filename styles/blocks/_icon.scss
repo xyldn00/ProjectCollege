@@ -3,7 +3,7 @@
 .icon{
     display: inline-flex;
     align-items: center;
-    column-gap: rem(10);
+    column-gap: var(--spacing-sm);
 
     &::after{
         --size: #{rem(24)};
