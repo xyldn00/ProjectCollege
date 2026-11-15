@@ -12,7 +12,7 @@ const db = new sqlite3.Database(dbPath, (err) => {
 });
 
 db.serialize(() => {
-    // 1. Таблица пользователей (студентов)
+    // Таблица пользователей (студентов)
     db.run(`CREATE TABLE IF NOT EXISTS users (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         fullname TEXT NOT NULL,
@@ -23,7 +23,7 @@ db.serialize(() => {
         specialty TEXT DEFAULT 'Информационные системы и программирование'
     )`);
 
-    // 2. Таблица запросов справок
+    // Таблица запросов справок
     db.run(`CREATE TABLE IF NOT EXISTS requests (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         user_id INTEGER NOT NULL,

@@ -10,13 +10,8 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Раздача статических файлов (HTML, CSS, JS) из корня проекта (projectGAI/)
 const PUBLIC_DIR = path.resolve(__dirname, '..');
 app.use(express.static(PUBLIC_DIR));
-
-// ==========================================
-// 1. АВТОРИЗАЦИЯ И РЕГИСТРАЦИЯ
-// ==========================================
 
 // Регистрация
 app.post('/api/register', async (req, res) => {
@@ -90,11 +85,7 @@ app.post('/api/login', (req, res) => {
     });
 });
 
-// ==========================================
-// 2. ЛИЧНЫЙ КАБИНЕТ (ПРОФИЛЬ)
-// ==========================================
-
-// Получить профиль студента
+// Профиль
 app.get('/api/profile/:id', (req, res) => {
     const query = `SELECT id, fullname, email, group_name, course, specialty FROM users WHERE id = ?`;
     db.get(query, [req.params.id], (err, user) => {
@@ -104,30 +95,7 @@ app.get('/api/profile/:id', (req, res) => {
     });
 });
 
-// Обновить данные профиля (группа, курс, специальность)
-app.put('/api/profile/:id', (req, res) => {
-    const { fullname, group_name, course, specialty } = req.body;
-    const query = `
-        UPDATE users 
-        SET fullname = COALESCE(?, fullname),
-            group_name = COALESCE(?, group_name),
-            course = COALESCE(?, course),
-            specialty = COALESCE(?, specialty)
-        WHERE id = ?
-    `;
-
-    db.run(query, [fullname, group_name, course, specialty, req.params.id], function (err) {
-        if (err) return res.status(500).json({ error: err.message });
-        if (this.changes === 0) return res.status(404).json({ error: 'Пользователь не найден.' });
-        res.json({ message: 'Данные профиля успешно обновлены!' });
-    });
-});
-
-// ==========================================
-// 3. ЗАПРОСЫ СПРАВОК (УСЛУГИ)
-// ==========================================
-
-// Отправить новый запрос на справку
+// Создать запрос на справку
 app.post('/api/requests', (req, res) => {
     const { userId, certificateType, comment } = req.body;
 
@@ -145,7 +113,7 @@ app.post('/api/requests', (req, res) => {
     });
 });
 
-// Получить все справки конкретного студента
+// Получить справки студента
 app.get('/api/requests/:userId', (req, res) => {
     const query = `SELECT * FROM requests WHERE user_id = ? ORDER BY created_at DESC`;
     db.all(query, [req.params.userId], (err, rows) => {
@@ -154,17 +122,13 @@ app.get('/api/requests/:userId', (req, res) => {
     });
 });
 
-// Отменить / удалить заявку (если она еще в обработке)
+// Удалить справку
 app.delete('/api/requests/:requestId', (req, res) => {
     db.run(`DELETE FROM requests WHERE id = ?`, [req.params.requestId], function (err) {
         if (err) return res.status(500).json({ error: err.message });
-        res.json({ message: 'Заявка удалена.' });
+        res.json({ message: 'Заявка успешно удалена.' });
     });
 });
-
-// ==========================================
-// 4. МАРШРУТ ПО УМОЛЧАНИЮ
-// ==========================================
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(PUBLIC_DIR, 'index.html'));
