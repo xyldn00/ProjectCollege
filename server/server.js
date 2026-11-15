@@ -13,7 +13,7 @@ app.use(express.json());
 const PUBLIC_DIR = path.resolve(__dirname, '..');
 app.use(express.static(PUBLIC_DIR));
 
-// Регистрация
+// Регистрация нового студента
 app.post('/api/register', async (req, res) => {
     const { fullname, email, password, group_name, course, specialty } = req.body;
 
@@ -24,8 +24,8 @@ app.post('/api/register', async (req, res) => {
     try {
         const hashedPassword = await bcrypt.hash(password, 10);
         const query = `
-            INSERT INTO users (fullname, email, password, group_name, course, specialty) 
-            VALUES (?, ?, ?, ?, ?, ?)
+            INSERT INTO users (fullname, email, password, group_name, course, specialty, role) 
+            VALUES (?, ?, ?, ?, ?, ?, 'student')
         `;
 
         db.run(
@@ -36,7 +36,7 @@ app.post('/api/register', async (req, res) => {
                 hashedPassword,
                 group_name || 'Не указана',
                 course || 1,
-                specialty || 'Информационные системы'
+                specialty || 'Информационные системы и программирование'
             ],
             function (err) {
                 if (err) {
@@ -56,7 +56,7 @@ app.post('/api/register', async (req, res) => {
     }
 });
 
-// Вход
+// Вход в систему (возвращает данные пользователя вместе с ролью)
 app.post('/api/login', (req, res) => {
     const { email, password } = req.body;
 
@@ -79,23 +79,47 @@ app.post('/api/login', (req, res) => {
                 email: user.email,
                 group_name: user.group_name,
                 course: user.course,
-                specialty: user.specialty
+                specialty: user.specialty,
+                role: user.role || 'student'
             }
         });
     });
 });
 
-// Профиль
-app.get('/api/profile/:id', (req, res) => {
-    const query = `SELECT id, fullname, email, group_name, course, specialty FROM users WHERE id = ?`;
-    db.get(query, [req.params.id], (err, user) => {
-        if (err) return res.status(500).json({ error: err.message });
-        if (!user) return res.status(404).json({ error: 'Пользователь не найден.' });
-        res.json(user);
+// Получить ВСЕ заявки (специально для панели администратора)
+app.get('/api/admin/requests', (req, res) => {
+    const query = `
+        SELECT requests.*, users.fullname, users.email, users.group_name 
+        FROM requests 
+        JOIN users ON requests.user_id = users.id 
+        ORDER BY requests.created_at DESC
+    `;
+    db.all(query, [], (err, rows) => {
+        if (err) {
+            console.error('Ошибка базы данных при получении заявок:', err.message);
+            return res.status(500).json({ error: err.message });
+        }
+        res.json(rows);
     });
 });
 
-// Создать запрос на справку
+// Изменить статус заявки (Одобрена / Отклонена / В обработке) — для админки
+app.patch('/api/admin/requests/:id', (req, res) => {
+    const { status } = req.body;
+    const requestId = req.params.id;
+
+    if (!['В обработке', 'Одобрена', 'Отклонена'].includes(status)) {
+        return res.status(400).json({ error: 'Недопустимый статус заявки.' });
+    }
+
+    const query = `UPDATE requests SET status = ? WHERE id = ?`;
+    db.run(query, [status, requestId], function (err) {
+        if (err) return res.status(500).json({ error: err.message });
+        res.json({ message: 'Статус успешно обновлен!' });
+    });
+});
+
+// Создать новый запрос на справку (от лица студента)
 app.post('/api/requests', (req, res) => {
     const { userId, certificateType, comment } = req.body;
 
@@ -113,7 +137,7 @@ app.post('/api/requests', (req, res) => {
     });
 });
 
-// Получить справки студента
+// Получить все справки конкретного студента
 app.get('/api/requests/:userId', (req, res) => {
     const query = `SELECT * FROM requests WHERE user_id = ? ORDER BY created_at DESC`;
     db.all(query, [req.params.userId], (err, rows) => {
@@ -122,7 +146,7 @@ app.get('/api/requests/:userId', (req, res) => {
     });
 });
 
-// Удалить справку
+// Удалить справку (отмена заявки студентом)
 app.delete('/api/requests/:requestId', (req, res) => {
     db.run(`DELETE FROM requests WHERE id = ?`, [req.params.requestId], function (err) {
         if (err) return res.status(500).json({ error: err.message });
@@ -130,6 +154,7 @@ app.delete('/api/requests/:requestId', (req, res) => {
     });
 });
 
+// Главная страница
 app.get('/', (req, res) => {
     res.sendFile(path.join(PUBLIC_DIR, 'index.html'));
 });

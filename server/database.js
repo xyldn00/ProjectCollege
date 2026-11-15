@@ -1,5 +1,6 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
+const bcrypt = require('bcryptjs');
 
 const dbPath = path.resolve(__dirname, 'database.sqlite');
 
@@ -11,8 +12,8 @@ const db = new sqlite3.Database(dbPath, (err) => {
     }
 });
 
-db.serialize(() => {
-    // Таблица пользователей (студентов)
+db.serialize(async () => {
+    // Таблица пользователей с ролями
     db.run(`CREATE TABLE IF NOT EXISTS users (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         fullname TEXT NOT NULL,
@@ -20,8 +21,22 @@ db.serialize(() => {
         password TEXT NOT NULL,
         group_name TEXT DEFAULT 'Не указана',
         course INTEGER DEFAULT 1,
-        specialty TEXT DEFAULT 'Информационные системы и программирование'
-    )`);
+        specialty TEXT DEFAULT 'Информационные системы и программирование',
+        role TEXT DEFAULT 'student'
+    )`, async () => {
+        // Автоматически создаем тестового администратора, если его еще нет
+        const adminEmail = 'admin@college.ru';
+        db.get(`SELECT * FROM users WHERE email = ?`, [adminEmail], async (err, row) => {
+            if (!row) {
+                const hashedPassword = await bcrypt.hash('admin123', 10);
+                db.run(
+                    `INSERT INTO users (fullname, email, password, group_name, course, specialty, role) VALUES (?, ?, ?, ?, ?, ?, ?)`,
+                    ['Администратор Учебной Части', adminEmail, hashedPassword, 'Админка', 4, 'Управление ИС', 'admin']
+                );
+                console.log('Создан тестовый аккаунт администратора: admin@college.ru / admin123');
+            }
+        });
+    });
 
     // Таблица запросов справок
     db.run(`CREATE TABLE IF NOT EXISTS requests (
