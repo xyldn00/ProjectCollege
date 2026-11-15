@@ -34,9 +34,9 @@ app.post('/api/register', async (req, res) => {
                 fullname,
                 email,
                 hashedPassword,
-                group_name || 'Не указана',
+                group_name || '?',
                 course || 1,
-                specialty || 'Информационные системы и программирование'
+                specialty || '?'
             ],
             function (err) {
                 if (err) {
@@ -56,7 +56,7 @@ app.post('/api/register', async (req, res) => {
     }
 });
 
-// Вход в систему (возвращает данные пользователя вместе с ролью)
+// Вход в систему, возвращает данные пользователя вместе с ролью
 app.post('/api/login', (req, res) => {
     const { email, password } = req.body;
 
@@ -86,7 +86,7 @@ app.post('/api/login', (req, res) => {
     });
 });
 
-// Получить ВСЕ заявки (специально для панели администратора)
+// Получить ВСЕ заявки для админа
 app.get('/api/admin/requests', (req, res) => {
     const query = `
         SELECT requests.*, users.fullname, users.email, users.group_name 
@@ -103,7 +103,7 @@ app.get('/api/admin/requests', (req, res) => {
     });
 });
 
-// Изменить статус заявки (Одобрена / Отклонена / В обработке) — для админки
+// Изменить статус заявки 
 app.patch('/api/admin/requests/:id', (req, res) => {
     const { status } = req.body;
     const requestId = req.params.id;
@@ -119,7 +119,7 @@ app.patch('/api/admin/requests/:id', (req, res) => {
     });
 });
 
-// Создать новый запрос на справку (от лица студента)
+// Создать новый запрос на справку 
 app.post('/api/requests', (req, res) => {
     const { userId, certificateType, comment } = req.body;
 
